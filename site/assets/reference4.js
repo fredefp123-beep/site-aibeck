@@ -28,8 +28,10 @@
      $('#refResultTitle').textContent=current.title;
      $('#refResultBody').textContent=current.body;
      $('#refResultContext').textContent=answers.segmento+' · '+(answers.momento==='Agora'?'prioridade imediata':answers.momento==='Pesquisando'?'fase de exploração':'planejamento para os próximos 30 dias');
-     const demo=$('#refResultDemo');demo.href=current.demo;
-     demo.textContent=answers.problema==='site'?'Explorar sites 3D ↗':'Testar demonstração ↗';
+     const demo=$('#refResultDemo');
+     const productAnchor={atendimento:'produto-ia',gestao:'produto-crm',site:'produto-sites',integracoes:'produto-ia'}[answers.problema]||'produto-crm';
+     if(document.getElementById(productAnchor)){demo.href='#'+productAnchor;demo.textContent='Ver a solução indicada para você ↗';demo.dataset.ab10Product=productAnchor;}
+     else{demo.href=current.demo;delete demo.dataset.ab10Product;demo.textContent=answers.problema==='site'?'Explorar sites 3D ↗':'Testar demonstração ↗';}
      const msg='Olá! Usei o guia do site AIBeck. Tenho uma empresa do segmento '+answers.segmento+'. Meu desafio é '+({atendimento:'melhorar atendimento e acompanhamento',gestao:'organizar vendas e gestão',site:'melhorar minha presença digital',integracoes:'integrar sistemas e processos'}[answers.problema])+'. Momento: '+answers.momento+'. Quero saber como vocês podem ajudar.';
      $('#refResultWhatsApp').href='https://wa.me/5524992130600?text='+encodeURIComponent(msg);
      go(3);
@@ -55,8 +57,9 @@
      else if(drawer){drawer.classList.add('open')}
      window.aiTrack?.('guide_qualified_lead',{category:answers.problema});
    });
-   $('#refResultDemo').addEventListener('click',()=>{
+   $('#refResultDemo').addEventListener('click',e=>{
      if(!current)return;
+     const pa=e.currentTarget.dataset.ab10Product;if(pa){const el=document.getElementById(pa);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('ab10-highlight');setTimeout(()=>el.classList.remove('ab10-highlight'),2600);}window.aiTrack?.('guide_product',{category:answers.problema});return;}
      if(current.demoScene){const button=document.querySelector(`.showroom-list [data-scene="${current.demoScene}"]`);if(button)button.click();}
      if(current.module){const tab=document.querySelector(`[data-os-tab="${current.module}"]`);if(tab)tab.click();}
      window.aiTrack?.('guide_demo',{category:answers.problema});
