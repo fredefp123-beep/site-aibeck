@@ -1040,3 +1040,13 @@ html,body{max-width:100%;overflow-x:clip}
   .kin-controls{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;width:calc(100% - 28px)!important}
   .kin-legal{position:relative!important;left:auto!important;bottom:auto!important;width:auto!important;margin:10px 15px 0!important;padding:6px 0 12px!important}
 }
+
+/* aviso de cookies discreto */
+.ab-consent{position:fixed;left:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:14px;max-width:min(520px,calc(100vw - 32px));padding:9px 9px 9px 16px;border-radius:999px;background:rgba(6,20,30,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(160,220,246,.18);box-shadow:0 10px 30px rgba(0,0,0,.35);color:#cfe3ee;font:12.5px/1.35 system-ui,sans-serif}
+.ab-consent[hidden]{display:none}
+.ab-consent p{margin:0;white-space:nowrap}
+.ab-consent a{color:#9ff2fb;text-decoration:underline;text-underline-offset:2px}
+.ab-consent-actions{display:flex;gap:6px;flex:0 0 auto}
+.ab-consent button{cursor:pointer;border-radius:999px;padding:6px 12px;font:600 12px/1 system-ui,sans-serif;border:1px solid rgba(160,220,246,.25);background:transparent;color:#cfe3ee}
+.ab-consent #masterConsentAccept{background:#9ceafd;border-color:#9ceafd;color:#06111a}
+@media (max-width:600px){.ab-consent{left:10px;right:74px;bottom:14px;max-width:none;border-radius:14px;padding:7px 7px 7px 12px;gap:8px;font-size:11px}.ab-consent p{white-space:normal}.ab-consent-long{display:none}.ab-consent button{padding:6px 9px;font-size:11px}}
