@@ -86,20 +86,32 @@
 /* ---------- CRM (AIBeck OS): explicação breve + teste ---------- */
 #tour.ab13-crm{padding-top:110px!important;padding-bottom:90px!important}
 #tour .os26-intro,#tour .af-guide.ai-guide-bridge,#tour .ai-mode-intro>p,#tour .os26-bottom-note,#tour .af-intro-heading p{display:none!important}
-.ab13-crm-head{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:end;margin-bottom:44px}
-.ab13-crm-head h2{margin:18px 0 0;color:#f4fbff;font-size:clamp(42px,5vw,76px);line-height:.98;letter-spacing:-.045em;font-weight:800}
+.ab13-crm-head{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:end;margin-bottom:46px;padding:48px 52px;border-radius:28px;background:linear-gradient(135deg,rgba(18,48,66,.55),rgba(6,18,28,.85));border:1px solid rgba(160,220,246,.14);box-shadow:0 40px 90px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06);overflow:hidden;isolation:isolate}
+.ab13-crm-head::before{content:"";position:absolute;inset:-40% -10% auto auto;width:60%;height:140%;background:radial-gradient(closest-side,rgba(78,153,255,.22),transparent);filter:blur(20px);z-index:-1;animation:ab13-glow 12s ease-in-out infinite alternate}
+.ab13-crm-head::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(120deg,rgba(118,231,241,.5),transparent 35%,transparent 65%,rgba(143,123,255,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.ab13-os-lockup{display:inline-flex;align-items:center;gap:12px;margin:22px 0 4px;padding:9px 16px 9px 9px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(160,220,246,.18);color:#eaf6fb;font-size:15px;font-weight:600;letter-spacing:-.01em}
+.ab13-os-lockup strong{color:#76e7f1}
+.ab13-os-mark{position:relative;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#76e7f1,#4e99ff 60%,#8f7bff);box-shadow:0 0 22px rgba(98,232,251,.45)}
+.ab13-os-mark b{position:absolute;inset:8px;border-radius:4px;border:2px solid rgba(4,16,26,.85);border-right-color:transparent;animation:ab13-spin 6s linear infinite}
+.ab13-crm-head h2{margin:18px 0 0;color:#f4fbff;font-size:clamp(42px,4.8vw,74px);line-height:.98;letter-spacing:-.045em;font-weight:800}
 .ab13-crm-head h2 em{font-style:normal;background:linear-gradient(90deg,#d8fbff,#76e7f1 45%,#4e99ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.ab13-crm-copy p{margin:0 0 14px;color:#a2b9c9;font-size:17px;line-height:1.6;max-width:46ch}
-.ab13-crm-copy .ab13-crm-try{color:#d8eef7;font-size:15px}
-.ab13-crm-copy .ab13-crm-try b{color:#76e7f1}
+.ab13-crm-copy p{margin:0 0 20px;color:#a2b9c9;font-size:17px;line-height:1.6;max-width:46ch}
+.ab13-crm-copy p b{color:#eaf6fb}
+.ab13-os-feats{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.ab13-os-feats li{padding:8px 13px;border-radius:999px;background:rgba(98,232,251,.07);border:1px solid rgba(98,232,251,.2);color:#cfeff5;font-size:13px;font-weight:600}
+.ab13-os-try{display:inline-flex;align-items:center;gap:14px;padding:14px 16px 14px 22px;border-radius:999px;background:linear-gradient(90deg,#d8fbff,#9fe9f5);color:#04131d;font-weight:700;font-size:15px;box-shadow:0 14px 40px rgba(98,232,251,.25);transition:transform .3s,box-shadow .3s}
+.ab13-os-try i{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#04131d;color:#9fe9f5;font-style:normal;animation:ab13-bob 1.8s ease-in-out infinite}
+.ab13-os-try:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(98,232,251,.35)}
+@keyframes ab13-bob{50%{transform:translateY(3px)}}
 #tour .af-intro-panel{padding-top:26px!important;padding-bottom:26px!important;margin-bottom:18px!important}
 #tour .af-intro-heading h2,#tour .af-intro-heading h3,#tour .af-intro-heading strong{font-size:clamp(22px,2.2vw,30px)!important}
 #tour .ai-mode-panel{padding-top:22px!important;padding-bottom:22px!important;margin-bottom:22px!important}
 #tour .ai-mode-intro h2,#tour .ai-mode-intro h3{font-size:clamp(22px,2.2vw,32px)!important}
 @media (max-width:760px){
   #tour.ab13-crm{padding-top:76px!important;padding-bottom:60px!important}
-  .ab13-crm-head{grid-template-columns:1fr;gap:18px;margin-bottom:26px}
+  .ab13-crm-head{grid-template-columns:1fr;gap:22px;margin-bottom:26px;padding:30px 22px;border-radius:22px}
   .ab13-crm-copy p{font-size:15.5px}
+  .ab13-os-try{width:100%;justify-content:space-between}
 }
 
 /* ---------- Laboratório interativo: menor, com os 6 produtos ---------- */
@@ -119,3 +131,5 @@
   #tour .os26-workspace{max-height:520px}
   #tour .os26-sidebar{max-height:none}
 }
+#af-onboarding{scroll-margin-top:110px}
+.ab13-crm-lead .ab13-kicker{display:flex}
