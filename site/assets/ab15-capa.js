@@ -63,18 +63,18 @@
       vec2 mu=vec2(m.x, mirror? -m.y : m.y);
       vec2 tuv=vec2(mu.x, 1.-mu.y);
       vec4 lg=texture2D(uLogo,tuv);
-      float a=lg.a;
+      float a=smoothstep(.06,.9,lg.a);
       if(a>.002){
-        vec2 e=1./uTex*2.5;
+        vec2 e=1./uTex*5.;
         float bx=texture2D(uBlur,tuv+vec2(e.x,0.)).a-texture2D(uBlur,tuv-vec2(e.x,0.)).a;
         float by=texture2D(uBlur,tuv-vec2(0.,e.y)).a-texture2D(uBlur,tuv+vec2(0.,e.y)).a;
         vec3 n=normalize(vec3(-bx*3.2,-by*3.2,1.));
-        float flow=.18*sin(mu.x*7.+t*.55+n.x*2.)+.12*noise(mu*vec2(6.,3.)+t*.15);
+        float flow=.18*sin(mu.x*7.+t*.55+n.x*2.)+.06*noise(mu*vec2(4.,2.)+t*.15);
         float r=n.y*.55+mu.y*.9+flow+t*.035;
         vec3 ch=vec3(chrome(r*1.9+.02).r, chrome(r*1.9).g, chrome(r*1.9-.02).b);
         vec2 L=normalize(vec2(uMouse.x-.5, .6));
         float spec=pow(max(dot(n,normalize(vec3(L*0.9,1.))),0.),48.);
-        vec3 brand=lg.rgb/max(lg.a,.001);
+        vec3 brand=clamp(lg.rgb,0.,1.);
         vec3 metal=mix(brand,ch,.62)+spec*.9+vec3(.2,.6,1.)*pow(1.-n.z,2.)*.5;
         float rise=smoothstep(0.,1.,uRise);
         float yv=mu.y-(1.-rise)*.55; /* sobe da névoa */
@@ -90,7 +90,7 @@
     col+=vec3(.2,.6,.9)*exp(-pow(dy*9.,2.))*.08;
     /* vinheta + grão */
     col*=1.-.45*pow(length((uv-.5)*vec2(1.,1.3)),2.2);
-    col+=(hash(fc+fract(t)*91.)-.5)*.035;
+    col+=(hash(fc+fract(t)*91.)-.5)*.018;
     gl_FragColor=vec4(col,1.);
   }`;
   const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
@@ -118,11 +118,11 @@
   img.src = sec.dataset.logo;
   img.onload = () => {
     const bb = { x: 17, y: 28, w: 889, h: 240 }; /* área útil do logo oficial (940 × 313) */
-    const pad = 24, W = bb.w + pad * 2, H = bb.h + pad * 2;
+    const pad = 24, SC = 2, W = (bb.w + pad * 2) * SC, H = (bb.h + pad * 2) * SC;
     const c1 = document.createElement('canvas'); c1.width = W; c1.height = H;
-    c1.getContext('2d').drawImage(img, bb.x, bb.y, bb.w, bb.h, pad, pad, bb.w, bb.h);
+    { const x1 = c1.getContext('2d'); x1.imageSmoothingQuality = 'high'; x1.drawImage(img, bb.x, bb.y, bb.w, bb.h, pad * SC, pad * SC, bb.w * SC, bb.h * SC); }
     const c2 = document.createElement('canvas'); c2.width = W; c2.height = H;
-    const x2 = c2.getContext('2d'); x2.filter = 'blur(7px)'; x2.drawImage(c1, 0, 0);
+    const x2 = c2.getContext('2d'); x2.filter = 'blur(14px)'; x2.drawImage(c1, 0, 0);
     aspect = W / H; layout();
     texture(0, c1); texture(1, c2);
     gl.uniform1i(u.logo, 0); gl.uniform1i(u.blur, 1); gl.uniform2f(u.tex, W, H);
@@ -131,7 +131,7 @@
   };
 
   function layout() {
-    const dpr = Math.min(devicePixelRatio || 1, 1.6);
+    const dpr = Math.min(devicePixelRatio || 1, sec.clientWidth < 760 ? 2.75 : 1.75);
     const w = sec.clientWidth, h = sec.clientHeight;
     cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
     gl.viewport(0, 0, cv.width, cv.height);
@@ -144,8 +144,11 @@
     gl.uniform4f(u.rect, (cv.width - lw) / 2, cv.height * hz - sink, lw, lh);
     sec.style.setProperty('--ab15-hz', (1 - hz) * 100 + '%');
   }
+  let last = 0;
   function frame(now) {
     if (!ready) return;
+    if (!reduced && visible && sec.clientWidth < 760 && now - last < 32) { raf = requestAnimationFrame(frame); return; }
+    last = now;
     const t = (now - start) / 1000;
     const rise = reduced ? 1 : Math.min(1, t / 2.4);
     gl.uniform1f(u.time, reduced ? 4 : t + 4);
