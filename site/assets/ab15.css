@@ -1,0 +1,30 @@
+/* AIBeck V15 — capa de entrada */
+.ab15-capa{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:
+  radial-gradient(60% 40% at 50% 58%,rgba(98,232,251,.45),transparent 70%),
+  linear-gradient(180deg,#030814 0%,#14175a 30%,#2a5fe0 50%,#62e8fb 56%,#0b2a44 57%,#02070f 100%);isolation:isolate}
+.ab15-gl{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1.2s ease}
+.ab15-ready .ab15-gl{opacity:1}
+.ab15-fallback-logo{position:absolute;left:50%;top:var(--ab15-hz,56%);width:min(62vw,1040px);transform:translate(-50%,-84%);filter:drop-shadow(0 0 40px rgba(98,232,251,.5));transition:opacity .8s}
+.ab15-ready .ab15-fallback-logo{opacity:0;pointer-events:none}
+.ab15-copy{position:absolute;left:0;right:0;bottom:clamp(54px,9vh,110px);z-index:2;display:grid;justify-items:center;gap:14px;text-align:center;padding:0 20px;
+  opacity:0;translate:0 18px;animation:ab15-in 1.2s 1.6s cubic-bezier(.18,1,.3,1) forwards}
+@keyframes ab15-in{to{opacity:1;translate:0 0}}
+.ab15-kicker{font:600 11.5px/1 ui-monospace,"Geist Mono",monospace;letter-spacing:.32em;color:#9ff2fb;text-shadow:0 0 18px rgba(98,232,251,.45)}
+.ab15-line{margin:0;color:rgba(234,246,251,.82);font-size:clamp(15px,1.4vw,18px);letter-spacing:.01em}
+.ab15-line i{font-style:normal;color:#62e8fb;margin:0 .45em}
+.ab15-enter{margin-top:10px;display:inline-flex;align-items:center;gap:12px;padding:14px 26px;border-radius:999px;color:#04131d;font-weight:700;font-size:15px;
+  background:linear-gradient(90deg,#d8fbff,#76e7f1 55%,#7fb6ff);box-shadow:0 16px 50px rgba(98,232,251,.35),0 0 0 1px rgba(216,251,255,.5);transition:transform .35s cubic-bezier(.18,1,.3,1),box-shadow .35s}
+.ab15-enter:hover{transform:translateY(-2px);box-shadow:0 20px 60px rgba(98,232,251,.5),0 0 0 1px #fff}
+.ab15-enter span{display:inline-block;animation:ab13-bob 1.8s ease-in-out infinite}
+.ab15-scroll{position:absolute;bottom:18px;left:50%;width:22px;height:34px;margin-left:-11px;border:1.5px solid rgba(160,220,246,.35);border-radius:12px;z-index:2;opacity:0;animation:ab15-in 1s 2.4s forwards}
+.ab15-scroll i{position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:#9ff2fb;animation:ab15-wheel 1.8s ease-in-out infinite}
+@keyframes ab15-wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+@media (max-width:760px){
+  .ab15-capa{min-height:560px}
+  .ab15-fallback-logo{width:90vw}
+  .ab15-kicker{letter-spacing:.22em;font-size:10.5px}
+  .ab15-line{font-size:13.5px}
+  .ab15-line i{margin:0 .3em}
+  .ab15-scroll{display:none}
+}
+@media (prefers-reduced-motion:reduce){.ab15-copy,.ab15-scroll{animation:none;opacity:1;translate:none}}
