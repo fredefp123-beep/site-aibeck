@@ -2,3 +2,8 @@
 [build]
   publish = "site"
   command = ""
+
+# Funções do servidor (ex.: pedidos do site vão direto para o AIBeck OS)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
