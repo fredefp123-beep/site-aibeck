@@ -1,0 +1,56 @@
+/* AIBeck V10 — home enxuta: faixa de prova, FAQ e ajustes finos */
+.ab10-wrap{width:min(1240px,calc(100% - 48px));margin:0 auto}
+.ab10-kicker{display:inline-block;font:700 11px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.18em;color:var(--cyan,#62e8fb);margin-bottom:18px}
+
+/* Faixa de prova */
+.ab10-proof{position:relative;background:linear-gradient(180deg,#03090f 0%,#061420 100%);border-top:1px solid rgba(160,220,246,.12);border-bottom:1px solid rgba(160,220,246,.12);padding:44px 0}
+.ab10-proof .ab10-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.ab10-proof-item{padding:6px 28px;border-left:1px solid rgba(160,220,246,.14)}
+.ab10-proof-item:first-child{border-left:0;padding-left:0}
+.ab10-proof-k{display:block;font:600 11px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.16em;color:var(--cyan,#62e8fb);margin-bottom:14px}
+.ab10-proof-item strong{display:block;color:#f4fbff;font-size:17px;font-weight:650;letter-spacing:-.01em;margin-bottom:8px}
+.ab10-proof-item p{margin:0;color:#a2b9c9;font-size:14px;line-height:1.55}
+
+/* FAQ */
+.ab10-faq{position:relative;background:#04101a;padding:120px 0;border-top:1px solid rgba(160,220,246,.1)}
+.ab10-faq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:start}
+.ab10-faq-head{position:sticky;top:110px}
+.ab10-faq-head h2{margin:0 0 18px;color:#f4fbff;font-size:clamp(38px,5vw,68px);line-height:.98;letter-spacing:-.035em;font-weight:700}
+.ab10-faq-head h2 em{font-style:normal;background:linear-gradient(90deg,#76e7f1,#4e99ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ab10-faq-head p{margin:0;color:#a2b9c9;font-size:16px;line-height:1.6;max-width:34ch}
+.ab10-faq-list{border-top:1px solid rgba(160,220,246,.16)}
+.ab10-q{border-bottom:1px solid rgba(160,220,246,.16)}
+.ab10-q summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 0;color:#ecf7ff;font-size:19px;font-weight:600;letter-spacing:-.01em;transition:color .2s}
+.ab10-q summary::-webkit-details-marker{display:none}
+.ab10-q summary:hover{color:#76e7f1}
+.ab10-q summary:focus-visible{outline:2px solid #62e8fb;outline-offset:4px;border-radius:4px}
+.ab10-q summary i{position:relative;flex:0 0 28px;height:28px;border:1px solid rgba(160,220,246,.3);border-radius:50%}
+.ab10-q summary i::before,.ab10-q summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:#76e7f1;transform:translate(-50%,-50%);transition:transform .3s}
+.ab10-q summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.ab10-q[open] summary i::after{transform:translate(-50%,-50%) rotate(0deg)}
+.ab10-q p{margin:0;padding:0 56px 28px 0;color:#a2b9c9;font-size:16px;line-height:1.65;max-width:62ch}
+
+/* Botão de WhatsApp: no celular vira ícone e não cobre o conteúdo */
+@media (max-width:760px){
+  .ab-whatsapp{right:14px!important;bottom:14px!important;width:54px;height:54px;padding:0!important;justify-content:center;font-size:0!important;gap:0!important}
+  .ab-whatsapp>*:not(svg):not(img){display:none!important}
+  .ab-whatsapp svg,.ab-whatsapp img{width:26px;height:26px}
+  main>section:last-of-type{padding-bottom:96px}
+}
+
+@media (max-width:980px){
+  .ab10-proof .ab10-wrap{grid-template-columns:1fr 1fr;row-gap:30px}
+  .ab10-proof-item:nth-child(3){border-left:0;padding-left:0}
+  .ab10-faq-grid{grid-template-columns:1fr;gap:40px}
+  .ab10-faq-head{position:static}
+}
+@media (max-width:560px){
+  .ab10-wrap{width:calc(100% - 40px)}
+  .ab10-proof{padding:34px 0}
+  .ab10-proof .ab10-wrap{grid-template-columns:1fr;row-gap:0}
+  .ab10-proof-item,.ab10-proof-item:nth-child(3){border-left:0;padding:18px 0;border-top:1px solid rgba(160,220,246,.12)}
+  .ab10-proof-item:first-child{border-top:0;padding-top:0}
+  .ab10-faq{padding:84px 0}
+  .ab10-q summary{font-size:17px;padding:22px 0}
+  .ab10-q p{padding-right:0;font-size:15px}
+}

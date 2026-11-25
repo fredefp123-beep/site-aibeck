@@ -14,8 +14,8 @@ body{overflow-x:hidden}
 .ab-hero-focus{display:inline-flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px;color:#d1e7e5;font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}
 .ab-hero-focus span{font-weight:400;color:#7de9cc}
 #inicio .kin-chapter{margin-top:34px}
-#inicio .kin-copy h1{font-size:clamp(51px,5.5vw,94px);letter-spacing:-.077em;line-height:.92}
-#inicio .kin-copy h1 em{background:linear-gradient(95deg,#c9fbe2 3%,#7feadf 47%,#82bfff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+#inicio .kin-copy :is(h1,h2){font-size:clamp(51px,5.5vw,94px);letter-spacing:-.077em;line-height:.92}
+#inicio .kin-copy :is(h1,h2) em{background:linear-gradient(95deg,#c9fbe2 3%,#7feadf 47%,#82bfff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 #inicio .kin-copy p{color:#c6d8dc;font-size:clamp(14px,1.12vw,17px);line-height:1.7;max-width:540px;margin-top:25px}
 #inicio .kin-primary{background:linear-gradient(110deg,#c6f4e0,#b7edf7);color:#04241e}
 #inicio .kin-secondary{border-color:rgba(192,242,220,.35)}
@@ -102,9 +102,9 @@ body{overflow-x:hidden}
 @media (max-width:1250px){.nav-entries{gap:16px}.nav-entries a{font-size:11px}.ab-s3-card{min-height:610px;padding:21px}.ab-s3-card h3{font-size:27px}}
 @media (max-width:1050px){.ab-s3-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ab-s3-card:last-child{grid-column:1/-1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:25px}.ab-s3-card:last-child .ab-s3-card-top{grid-column:1/-1}.ab-s3-card:last-child .ab-s3-visual{grid-column:1;grid-row:2/4;min-height:250px;margin:26px 0 0}.ab-s3-card:last-child .ab-s3-card-copy{grid-column:2;grid-row:2}.ab-s3-card:last-child .ab-s3-actions{grid-column:2;grid-row:3}.ab-s3-top h2{font-size:clamp(49px,7vw,80px)}.ab-trust-inner{gap:50px}}
 @media (max-width:780px){.ab-s3{padding:76px 0 80px}.ab-s3-container,.ab-trust-inner{width:min(100% - 36px,640px)}.ab-s3-top{display:block;margin-bottom:32px}.ab-s3-top h2{font-size:clamp(44px,10vw,70px)}.ab-s3-top>p{max-width:590px;margin-top:24px;font-size:14px}.ab-s3-grid{grid-template-columns:1fr}.ab-s3-card,.ab-s3-card:last-child{display:flex;min-height:0;grid-column:auto;padding:21px}.ab-s3-card:last-child .ab-s3-visual,.ab-s3-card:last-child .ab-s3-card-copy,.ab-s3-card:last-child .ab-s3-actions{grid-column:auto;grid-row:auto}.ab-s3-visual,.ab-s3-card:last-child .ab-s3-visual{height:210px;min-height:0;margin:25px 0 23px}.ab-s3-card h3{font-size:27px;max-width:480px}.ab-s3-actions{padding-top:22px}.ab-s3-bottom{align-items:start;flex-direction:column;gap:16px;padding:21px}.ab-s3-bottom>div{gap:8px}.ab-trust{padding:82px 0}.ab-trust-inner{grid-template-columns:1fr;gap:45px}.ab-trust-heading h2{font-size:clamp(39px,9vw,68px)}.ab-trust-steps{margin-left:5px}.ab-whatsapp{right:16px;bottom:14px;padding:13px}.ab-whatsapp span{display:none}
- #inicio .kin-copy h1{font-size:clamp(45px,9vw,80px)}#inicio .kin-copy p{font-size:14px;line-height:1.65}.ab-hero-shortcut{font-size:11px}
+ #inicio .kin-copy :is(h1,h2){font-size:clamp(45px,9vw,80px)}#inicio .kin-copy p{font-size:14px;line-height:1.65}.ab-hero-shortcut{font-size:11px}
 }
-@media(max-width:470px){.ab-s3-card{padding:18px;border-radius:20px}.ab-s3-top h2{font-size:clamp(43px,10vw,55px)}.ab-s3-card h3{font-size:26px}.ab-s3-visual{height:190px}.ab-chat-mini{transform:scale(.93) rotate(-3deg);transform-origin:top center}.ab-dash-mini{transform:scale(.93) rotateY(-8deg);transform-origin:top center}.ab-hero-focus{font-size:9px;gap:7px}#inicio .kin-copy h1{font-size:clamp(40px,10.8vw,58px)}#inicio .kin-copy p{font-size:13px}.ab-whatsapp{bottom:12px}}
+@media(max-width:470px){.ab-s3-card{padding:18px;border-radius:20px}.ab-s3-top h2{font-size:clamp(43px,10vw,55px)}.ab-s3-card h3{font-size:26px}.ab-s3-visual{height:190px}.ab-chat-mini{transform:scale(.93) rotate(-3deg);transform-origin:top center}.ab-dash-mini{transform:scale(.93) rotateY(-8deg);transform-origin:top center}.ab-hero-focus{font-size:9px;gap:7px}#inicio .kin-copy :is(h1,h2){font-size:clamp(40px,10.8vw,58px)}#inicio .kin-copy p{font-size:13px}.ab-whatsapp{bottom:12px}}
 @media(prefers-reduced-motion:reduce){.ab-s3-visual:after,.ab-chat-mini,.ab-dash-mini,.ab-dash-mini-stages i{animation:none!important}.ab-s3-card,.ab-whatsapp{transition:none!important}}
 .ab-whatsapp[hidden]{display:none!important}
 @media(max-width:700px){
