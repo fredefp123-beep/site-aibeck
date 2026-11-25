@@ -1,0 +1,24 @@
+AIBeck V9 · Luminous Studio · 09/11/2026
+
+BASE: V8 Luxury Tech, que permanece íntegra (hero 4 cenas, 6 sites 3D,
+CRM, IA, White Label, Simulador, Blueprint, Founder, Case Lab e formulário).
+
+NOVIDADES
+- Fundos animados em canvas sob o conteúdo: véus fluidos, grid luminescente,
+  feixes e partículas, inspirados na linguagem do Background Studio da React Bits.
+- Execução leve (canvas 2D puro, sem React, somente quando na tela).
+- White Label corrigido para contraste alto, com textos maiores e claros.
+- Instagram oficial referenciado no próprio site: https://www.instagram.com/ai.beck_/
+  Com atalho no cabeçalho e uma nova seção editorial com mosaico animado.
+- CTA direto para o Instagram; o mosaico não representa feed real.
+
+ATENÇÃO
+- O site V8 oficial em produção não foi alterado.
+- As simulações e os seis sites 3D são conceitos, não clientes reais.
+- Não apresente funcionalidades de protótipo como disponíveis em produção.
+- Homologue Netlify Forms, responsividade e links numa URL de testes antes de publicar.
+
+USO
+1. Abra AIBeck_V9_PREVIA_COMPLETA.html para ver a demonstração de arquivo único.
+2. Teste menu Soluções, showroom, White Label, 6 sites 3D e Instagram.
+3. Arraste o ZIP para uma URL de prévia na Netlify.

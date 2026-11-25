@@ -1,0 +1,44 @@
+AIBeck Signature 3.0 — 09/11/2026
+================================
+
+O QUE MUDA:
+- Comunicação comercial objetiva na primeira tela, com mensagens específicas por cena.
+- Nova seção 3 caminhos: Atendimento e IA / CRM e Gestão / Sites e 3D.
+- White Label Studio: preview com nome, cinco cores, pipeline, indicadores, contatos e reset.
+- CTAs conectados às demonstrações e formulário existente (seleção de produto automática).
+- WhatsApp com acesso rápido (24 99213-0600), sem cobrir controles da abertura no celular.
+- Bloco de metodologia / como trabalhamos sem inventar depoimentos ou resultados.
+- Títulos de demo, diagnóstico, laboratório e próximo passo atualizados.
+
+O QUE FOI PRESERVADO DA SIGNATURE MASTER ORIGINAL:
+- hero cinemático, canvas/partículas, quatro cenas, seletor e rotação.
+- showroom de seis soluções com suas micro-simulações.
+- Disponibilizado atalho para White Label no menu principal.
+- console interativo com cenário B2B, clínicas, varejo e serviços.
+- AIBeck Blueprint e Case Lab; páginas privacidade/obrigado.
+- formulário Netlify, scripts de tracking e páginas auxiliares.
+- logos, imagens, efeitos, transições e arquivos originais.
+
+PUBLICAÇÃO NA NETLIFY (SEM SUBSTITUIR O SITE ATUAL NO PRIMEIRO TESTE):
+1) Acesse Netlify e crie um novo site de teste (Deploy manually).
+2) Arraste o arquivo ZIP AIBeck_SIGNATURE_3_0_NETLIFY.zip (ou a pasta descompactada).
+3) Confirme que 'index.html' está na raiz da publicação.
+4) Confira a página em computador e celular.
+   Se precisar visualizar sem ZIP, abra o HTML offline enviado separadamente.
+5) Teste: seletor do hero, 3 soluções, White Label Studio, showroom, CRM interativo, Blueprint,
+   abertura/fechamento do Case Lab, formulário de contato e WhatsApp.
+6) Confira o número de WhatsApp antes de divulgar.
+7) Se aprovar, publique no domínio principal e revise os dados analíticos na Netlify.
+
+IMPORTANTE:
+- As demonstrações são simulações com números fictícios e não são
+  evidências de clientes atendidos ou software pronto para produção.
+- Business OS é uma visão de produto em desenvolvimento; o site oferece
+  projetos personalizados de IA, CRM, automação e presença digital.
+- O cadastro Netlify Forms exige deploy/validação na sua conta Netlify.
+- Sem prova social autorizada, não incluí depoimentos ou resultados de clientes.
+- Para alterações posteriores, mantenha os ativos originais e edite
+  preferencialmente assets/signature3.css e assets/signature3.js.
+
+O arquivo PREVIA_OFFLINE_AIBECK.html (link separado na conversa) é uma
+visualização de um arquivo só: não substitui o ZIP para publicar.

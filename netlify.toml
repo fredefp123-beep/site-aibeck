@@ -1,0 +1,4 @@
+# Netlify publica somente a pasta "site". Notas internas ficam em "docs" e não vão pro ar.
+[build]
+  publish = "site"
+  command = ""

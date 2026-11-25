@@ -1,0 +1,38 @@
+AIBECK — SIGNATURE MASTER EDITION | INSTALAÇÃO
+
+1. EXTRAIA TODO O ZIP (não abra o HTML diretamente no ZIP do Windows).
+2. Confira que index.html, case-lab.html e a pasta assets estão no MESMO diretório.
+3. Para visualizar localmente, abra index.html no Chrome. Para a melhor compatibilidade, sirva a pasta com um servidor local (exemplo: python -m http.server 8000) e acesse localhost:8000.
+4. Para publicar: arraste a PASTA COMPLETA para Netlify Deploys, não somente o index.html. Os links do Case Lab carregam case-lab.html apenas ao serem clicados.
+
+CAPTAÇÃO DE LEADS:
+- O formulário HTML está marcado com name="aibeck-leads" e data-netlify="true".
+- Na Netlify: site > Forms > Enable form detection; depois publique a nova versão.
+- Submeta um lead real de teste no domínio publicado e confirme a chegada em Forms (incluindo spam).
+- Configure notificações do formulário para o contato interno autorizado.
+- Em arquivo local ou localhost, o formulário NÃO envia: mostra alternativa para copiar briefing.
+
+ANALYTICS:
+- Os eventos são registrados somente na memória da sessão por padrão (consulte aiAnalyticsDebug() no Console).
+- Para ativar GA4: informe o measurement ID no assets/analytics-config.js e publique novamente.
+- Com ID válido, o site mostrará escolha explícita de privacidade; o Google Analytics só carrega após aceitar.
+- Nunca inclua nomes, contatos ou texto do briefing nos eventos de analytics.
+
+PROVAS:
+- A seção Cases mostra demonstrações navegáveis de capacidades (sem clientes inventados).
+- CRM, IA e automações dentro do Product OS são SIMULAÇÕES locais com dados demonstrativos.
+- Fotos e experiências do Case Lab são projetos-conceito, não trabalhos de clientes.
+
+SEO:
+- Após escolher e conectar o domínio, ajuste meta og:image no index.html para URL HTTPS ABSOLUTA, defina uma tag canonical absoluta e valide a imagem prévia de compartilhamento.
+- Revise Política de Privacidade com os dados jurídicos definitivos do negócio.
+
+CHECKLIST PRÉ-LANÇAMENTO:
+[ ] ZIP extraído e arquivos completos
+[ ] Todas as 4 cenas e CTAs validados no seu navegador
+[ ] Clique em CRM / IA / Integrações / Sites leva ao módulo certo
+[ ] Cases abrem localmente e na Netlify
+[ ] Formulário recebido de verdade no painel Netlify
+[ ] Domínio e URLs de compartilhamento corretos
+[ ] Testes de teclado, contraste, mobile e navegadores reais
+[ ] Revisão jurídica de privacidade e políticas comerciais

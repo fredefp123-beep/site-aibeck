@@ -1,0 +1,94 @@
+/* AIBeck V9 · Luminous Studio: standalone progressive enhancement to V8.
+   Motion references: React Bits Grid Motion, Dark Veil, Acid Squares, Beams.
+   No external framework or copied shader required; rendered with small 2D canvas effects. */
+:root{--ab9-gold:#e8d8b2;--ab9-arctic:#d6fff4;--ab9-ink:#030b16;--ab9-silver:#c5deeb}
+html{scroll-padding-top:90px}
+.ab9-atmosphere{position:absolute!important;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.85;mix-blend-mode:screen;isolation:isolate}
+#produto-ia,#produto-crm,#white-label,#entrega{position:relative;isolation:isolate;overflow:hidden}
+#produto-ia>.ab5-product-inner,#produto-crm>.ab5-product-inner,#white-label>.ab-wl-inner,#entrega>.container{position:relative;z-index:2}
+#produto-ia>.ab9-atmosphere,#produto-crm>.ab9-atmosphere{z-index:1;opacity:.44}
+#entrega>.ab9-atmosphere{opacity:.35}
+#white-label>.ab9-atmosphere{opacity:.42}
+.ab5-top{box-shadow:0 16px 75px #0009,0 1px 0 #7fead51f inset!important}
+.ab9-ig-icon{display:grid;place-items:center;width:38px;height:38px;flex:none;color:#c8f5ed;background:linear-gradient(145deg,#0c2936,#071824);border:1px solid #8cdac94a;border-radius:12px;box-shadow:inset 0 1px #fff2;transition:transform .3s,border-color .3s,box-shadow .3s;text-decoration:none}
+.ab9-ig-icon svg{width:19px;height:19px}.ab9-ig-icon:hover{transform:translateY(-3px);border-color:#b0fff0;box-shadow:0 9px 30px #5cd5ec38;color:#fff}
+.ab9-ig-mobile{display:none!important}
+/* Fine luxury details that do not replace the V8 cinematic hero. */
+.ab6-hero{box-shadow:inset 0 -2px #b7f0df16}
+.ab6-hero .kin-right{filter:drop-shadow(0 38px 66px #0009) drop-shadow(0 0 44px #4b9de018)}
+.ab6-products .ab5-product-demo{box-shadow:0 36px 105px #000b,0 0 95px #6cceef14,inset 0 1px #fff4!important}
+.ab6-products .ab5-product-copy h2{filter:drop-shadow(0 4px 40px #56c9c51d)}
+.ab8-showcase{box-shadow:0 63px 130px #000b,0 0 115px #69dfdf0e,inset 0 1px #fff3}
+.ab8-stage-perspective::before{filter:blur(80px)!important;background:radial-gradient(ellipse,#73e4c23d,#5b75d629 45%,transparent 76%)!important}
+/* White Label: convert old dark-text-on-dark section to a high-contrast editorial stage. */
+#white-label{background:radial-gradient(ellipse at 7% 24%,#1b4359 0%,transparent 41%),radial-gradient(ellipse at 96% 70%,#153446 0%,transparent 40%),linear-gradient(134deg,#071423,#07192a 54%,#050d1b)!important;color:#f4fcff!important;border-top:1px solid #a3e7f319;border-bottom:1px solid #a3e7f319}
+#white-label::after{content:"";position:absolute;z-index:0;inset:0;background:linear-gradient(90deg,#c8efff08 1px,transparent 1px),linear-gradient(#c8efff07 1px,transparent 1px);background-size:94px 94px;mask-image:linear-gradient(75deg,#000,transparent 72%);pointer-events:none}
+#white-label .ab-wl-story{position:relative;z-index:3}
+#white-label .ab-wl-story .ab-kicker{color:#b8f9e4!important}
+#white-label .ab-wl-story .ab-kicker i{background:#b0ffe3!important}
+#white-label .ab-wl-story h2{color:#f1fcff!important;text-shadow:0 14px 48px #0004}
+#white-label .ab-wl-story h2 em{color:#a7ffe4!important;background:linear-gradient(105deg,#d5fff2,#77daee,#c1adff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+#white-label .ab-wl-story>p:not(.ab-wl-disclosure){color:#d5eaf2!important;font-size:clamp(16px,1.24vw,19px)!important;line-height:1.74!important;text-shadow:none!important}
+#white-label .ab-wl-disclosure{color:#adcbd2!important;font-size:12px!important;line-height:1.6!important}
+#white-label .ab-wl-pillrow span{color:#e2f9f6!important;background:#b4eee70c;border-color:#b4eee74a;padding:10px 13px;font-size:11px}
+#white-label .ab-wl-primary{background:linear-gradient(110deg,#d4fff1,#8bddea)!important;color:#071a24!important;box-shadow:0 16px 35px #7de4d42e}
+#white-label .ab-wl-secondary{color:#eafcfb!important;background:#0b2834aa;border-color:#b8f5ef69}
+#white-label .ab-wl-secondary:hover{background:#174153}
+#white-label .ab-wl-studio{color:#f2ffff!important;background:linear-gradient(140deg,#112f41,#092132 55%,#081724)!important;border-color:#a7efe75b;box-shadow:0 45px 115px #000a,0 0 100px #5eabb91b,inset 0 1px #fff2}
+#white-label .ab-wl-studio-top,#white-label .ab-wl-studio-top small{color:#ddf8fa!important}
+#white-label .ab-wl-studio-top button{color:#ecffff;background:#173848;border-color:#7da9af72;font-size:11px}
+#white-label .ab-wl-controls label,#white-label .ab-wl-controls legend{color:#dbf4fa!important;font-size:10px!important}
+#white-label .ab-wl-controls input{color:#fff!important;background:#102e42!important;border:1px solid #84bfce91!important;font-size:14px!important;height:43px}
+#white-label .ab-wl-controls input::placeholder{color:#bed8e1}
+#white-label .ab-wl-screen{color:#f0feff!important;background:#0b2434!important;border-color:#8ad6d547!important;box-shadow:0 25px 48px #0006}
+#white-label .ab-wl-screen-head{background:#13374a!important;border-bottom-color:#77b8c251!important}
+#white-label .ab-wl-screen-head strong{color:#f8ffff!important;font-size:14px!important}
+#white-label .ab-wl-screen-head small{color:#b9dfeb!important;font-size:9px!important}
+#white-label .ab-wl-sidebar{background:#102e3e!important;border-right-color:#76bbc64a!important}
+#white-label .ab-wl-sidebar>span{color:#b0d9e0!important;font-size:9px!important}
+#white-label .ab-wl-sidebar button,#white-label .ab-wl-sidebar i{color:#d5eef3!important;font-size:11px!important;opacity:1!important}
+#white-label .ab-wl-sidebar button.is-active{background:color-mix(in srgb,var(--ab-wl-accent) 21%,#144055)!important;color:#ffffff!important}
+#white-label .ab-wl-workspace{background:radial-gradient(ellipse at 60% 8%,#25485850,transparent 65%),#0c2535!important}
+#white-label .ab-wl-workspace-head h3{color:#f7ffff!important;font-size:clamp(18px,1.5vw,23px)!important}
+#white-label .ab-wl-workspace-head>span{color:#b6d9e2!important}
+#white-label .ab-wl-kpis>div{background:#14384a!important;border-color:#7bbeca58!important}
+#white-label .ab-wl-kpis small{color:#c9e5ea!important;font-size:10px!important}
+#white-label .ab-wl-kpis strong{color:#fff!important;font-size:clamp(13px,1.4vw,20px)!important}
+#white-label .ab-wl-kanban>div{background:#133446!important;border-color:#7bbeca52!important}
+#white-label .ab-wl-kanban span{color:var(--ab-wl-accent)!important}
+#white-label .ab-wl-kanban b{color:#fff!important;font-size:11px!important}
+#white-label .ab-wl-kanban small{color:#d2e9ef!important;font-size:10px!important}
+#white-label .ab-wl-contacts>div{background:#143749!important;border-color:#83bfca56!important}
+#white-label .ab-wl-contacts strong{color:#fff!important;font-size:12px!important}
+#white-label .ab-wl-contacts small{color:#c4e2ea!important;font-size:10px!important}
+#white-label .ab-wl-studio-foot{color:#c0d9df!important;font-size:9px!important}
+/* Instagram branded editorial block with React Bits Grid Motion-inspired active mosaic. */
+.ab9-social{position:relative;isolation:isolate;overflow:hidden;min-height:660px;background:radial-gradient(ellipse at 75% 15%,#202f57 0%,transparent 45%),linear-gradient(135deg,#050d19,#0b1d31 58%,#080c1a);border-top:1px solid #b6f0ec16;border-bottom:1px solid #b6f0ec16;color:#edfaff;display:flex;align-items:center}
+.ab9-social::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 37% 52% at 32% 35%,#0a1421 0%,transparent 100%),linear-gradient(90deg,#071222 0%,#071222ed 33%,#07122272 63%,#07122225 100%)}
+.ab9-social>.ab9-atmosphere{z-index:0;opacity:.36}
+.ab9-social-grid{position:absolute;z-index:0;inset:-24% -19% -22% 39%;perspective:1200px;overflow:hidden;pointer-events:none;opacity:.91;mask-image:linear-gradient(90deg,transparent 0%,#000 19%,#000 82%,transparent 100%)}
+.ab9-mosaic-track{position:absolute;inset:-12%;display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));grid-auto-rows:225px;gap:16px;transform:rotate(-13deg) rotateY(-10deg) translate3d(var(--ab9-pan,0px),0,0);transform-style:preserve-3d;animation:ab9MosaicFloat 27s ease-in-out infinite alternate}
+@keyframes ab9MosaicFloat{to{transform:rotate(-11deg) rotateY(-7deg) translate3d(calc(var(--ab9-pan,0px) - 30px),-65px,0)}}
+.ab9-mosaic-tile{overflow:hidden;border-radius:20px;border:1px solid #ddfbff25;background:#142942;position:relative;box-shadow:0 20px 54px #0009,inset 0 1px #fff2}
+.ab9-mosaic-tile img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) contrast(1.04) brightness(.75);transform:scale(1.05)}
+.ab9-mosaic-text{background:linear-gradient(145deg,#193c54,#142b43 60%,#11223c);display:grid;place-items:center;padding:18px}
+.ab9-tile-type{color:#edffff;font:850 clamp(17px,1.75vw,29px)/1.08 system-ui,sans-serif;letter-spacing:-.055em;text-align:center;text-shadow:0 10px 36px #0009;max-width:250px}
+.ab9-mosaic-tile:nth-child(3n+2){transform:translateY(25px)}.ab9-mosaic-tile:nth-child(4n+3){transform:translateY(-16px)}
+.ab9-tile-light{position:absolute;inset:0;background:radial-gradient(circle at 20% 12%,#a6f3e132,transparent 42%),linear-gradient(180deg,transparent,#020b1855);pointer-events:none}
+.ab9-social-content{position:relative;z-index:3;width:100%;padding:100px 0;pointer-events:none}
+.ab9-social-content>*{pointer-events:auto}
+.ab9-eyebrow{display:inline-flex;align-items:center;gap:12px;color:#c1eadb;font:770 10px/1.5 ui-monospace,monospace;letter-spacing:.18em}.ab9-eyebrow:before{content:"";display:block;width:26px;height:1px;background:#9bf8d5}
+.ab9-social h2{color:#f5ffff;font:820 clamp(44px,5.9vw,87px)/1.03 system-ui,sans-serif;letter-spacing:-.076em;max-width:750px;margin:27px 0}.ab9-social h2 em{font-style:normal;background:linear-gradient(110deg,#f4f6e7,#94f1dc,#83b7f7);background-clip:text;-webkit-background-clip:text;color:transparent}
+.ab9-social-content>p{max-width:490px;color:#d0e7f1;font:460 clamp(16px,1.3vw,19px)/1.75 system-ui,sans-serif;margin:0 0 28px}
+.ab9-social-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.ab9-social-actions a{display:inline-flex;align-items:center;justify-content:center;gap:11px;border-radius:13px;padding:16px 21px;min-height:53px;font:800 13px/1.2 system-ui,sans-serif;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.ab9-social-actions a:hover{transform:translateY(-3px)}
+.ab9-social-primary{color:#061523;background:linear-gradient(110deg,#f1f6e8,#adf3da,#89c6fa);box-shadow:0 20px 44px #62cbb321}.ab9-social-primary svg{width:19px;height:19px}
+.ab9-social-secondary{color:#e9fcff;border:1px solid #b6fff66c;background:#0a1c2dac;backdrop-filter:blur(14px)}
+.ab9-social-footnote{display:flex;align-items:center;gap:9px;margin-top:23px;color:#9eb9c7;font:600 11px/1.5 system-ui,sans-serif}
+.ab9-social-dot{width:6px;height:6px;background:#91edcd;box-shadow:0 0 12px #91edcd;border-radius:50%}
+.ab9-footer-social{color:#aed6f8!important}
+@media(max-width:1250px){.ab9-social-grid{inset:-12% -30% -14% 42%}.ab9-social h2{max-width:600px}}
+@media(max-width:950px){.ab9-social{min-height:570px}.ab9-social-grid{inset:-10% -40% -20% 42%;opacity:.52}.ab9-social h2{max-width:560px}.ab9-social::before{background:linear-gradient(90deg,#071222 0%,#071222d9 70%,#07122280 100%)}}
+@media(max-width:680px){.ab9-ig-icon{width:34px;height:34px;border-radius:10px}.ab9-ig-mobile{display:block!important}.ab9-social{min-height:630px}.ab9-social-grid{inset:35% -35% -20% -5%;opacity:.25;mask-image:linear-gradient(180deg,transparent,#000 45%,transparent)}.ab9-mosaic-track{grid-template-columns:repeat(3,180px);grid-auto-rows:160px}.ab9-social-content{padding:75px 0 155px}.ab9-social h2{font-size:clamp(39px,9vw,54px)}.ab9-social-content>p{font-size:15px}.ab9-social-actions{flex-direction:column;align-items:stretch;max-width:440px}.ab9-social-actions a{width:100%}#white-label .ab-wl-story h2{font-size:clamp(44px,11vw,65px)!important}#white-label .ab-wl-workspace-head h3{font-size:16px!important}#white-label .ab-wl-kpis strong{font-size:12px!important}#white-label .ab-wl-controls legend,#white-label .ab-wl-controls label{font-size:10px!important}#white-label .ab-wl-sidebar button,#white-label .ab-wl-sidebar i{font-size:9px!important}#white-label .ab-wl-kanban b{font-size:9px!important}#white-label .ab-wl-kanban small{font-size:8px!important}}
+@media(prefers-reduced-motion:reduce){.ab9-mosaic-track{animation:none!important}.ab9-ig-icon,.ab9-social-actions a{transition:none!important}}
