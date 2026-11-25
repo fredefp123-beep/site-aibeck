@@ -1,0 +1,2 @@
+/* AIBeck V10 — links para seções que ficaram no Laboratório (experiencias.html) */
+(()=>{document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute('href').slice(1);if(!id)return;const el=document.getElementById(id);if(el&&!el.hidden&&el.offsetParent!==null)return;if(el&&el.closest('#contactDrawer'))return;e.preventDefault();e.stopImmediatePropagation();location.href='experiencias.html#'+id},true)})();

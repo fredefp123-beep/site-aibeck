@@ -19,7 +19,7 @@ body{background:#030b16}
 .ab6-hero .ab6-mesh-light{position:absolute;inset:0;pointer-events:none;opacity:.47;background-image:linear-gradient(90deg,#a1ffff08 1px,transparent 1px),linear-gradient(0deg,#a1ffff08 1px,transparent 1px);background-size:96px 96px;mask-image:linear-gradient(130deg,transparent 15%,#000 68%,transparent 100%);transform:perspective(850px) rotateX(14deg) scale(1.15);z-index:0}
 .ab6-hero .ab6-sky{position:absolute;inset:0;width:100%;height:100%;opacity:.53;pointer-events:none;z-index:0;mix-blend-mode:screen}
 .ab6-hero .kin-wrap,.ab6-hero .kin-grain{position:relative;z-index:2}
-.ab6-hero .kin-words h1,.ab6-hero .kin-copy h1{text-shadow:0 13px 70px #0007}
+.ab6-hero .kin-words :is(h1,h2),.ab6-hero .kin-copy :is(h1,h2){text-shadow:0 13px 70px #0007}
 .ab6-hero .kin-right{filter:drop-shadow(0 55px 90px #0008)}
 .ab6-hero .kin-primary{background:linear-gradient(105deg,#b8ffdf,#82d9ed)!important;box-shadow:0 10px 40px #6bfce11e,inset 0 1px #fff8!important;transition:transform .25s,box-shadow .25s}
 .ab6-hero .kin-primary:hover{transform:translateY(-3px);box-shadow:0 13px 45px #6bfce143!important}

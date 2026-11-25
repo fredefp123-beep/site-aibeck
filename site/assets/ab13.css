@@ -1,0 +1,135 @@
+/* AIBeck V13 — nova ordem da home, cases em movimento, laboratório compacto */
+.ab13-anchor{position:relative;top:-80px;height:0}
+
+/* ---------- Cases: palco em movimento ---------- */
+.ab13-cases{position:relative;overflow:hidden;padding:120px 0 130px;background:radial-gradient(120% 80% at 50% 0%,#0b2433 0%,#04101a 55%,#020910 100%)}
+.ab13-cases-glow{position:absolute;inset:-20% -10% auto;height:70%;background:radial-gradient(40% 50% at 30% 40%,rgba(98,232,251,.16),transparent 70%),radial-gradient(35% 45% at 75% 30%,rgba(78,153,255,.16),transparent 70%);filter:blur(30px);animation:ab13-glow 14s ease-in-out infinite alternate;pointer-events:none}
+@keyframes ab13-glow{to{transform:translate3d(4%,6%,0) scale(1.08)}}
+.ab13-cases-head{position:relative;z-index:2;max-width:880px;margin:0 auto 64px;text-align:center}
+.ab13-kicker{display:inline-flex;align-items:center;gap:10px;font:600 11px/1 ui-monospace,"Geist Mono",monospace;letter-spacing:.18em;color:#76e7f1}
+.ab13-kicker i{width:28px;height:1px;background:#76e7f1}
+.ab13-cases-head h2{margin:20px 0 18px;color:#f4fbff;font-size:clamp(44px,6vw,92px);line-height:.96;letter-spacing:-.045em;font-weight:800}
+.ab13-cases-head h2 em{font-style:normal;background:linear-gradient(90deg,#d8fbff,#76e7f1 40%,#4e99ff 75%,#8f7bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ab13-cases-head p{margin:0 auto;max-width:56ch;color:#a2b9c9;font-size:17px;line-height:1.6}
+
+.ab13-stage{position:relative;z-index:1;perspective:1600px;display:grid;gap:26px;padding:20px 0 70px;transition:transform 1.2s cubic-bezier(.18,1,.3,1);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.ab13-row{transform:rotateX(14deg) rotateZ(-3deg);transform-style:preserve-3d}
+.ab13-row[data-dir="right"]{transform:rotateX(14deg) rotateZ(-3deg) translateX(-6%)}
+.ab13-track{display:flex;gap:26px;width:max-content;animation:ab13-left 58s linear infinite}
+.ab13-row[data-dir="right"] .ab13-track{animation-name:ab13-right;animation-duration:64s}
+.ab13-stage:hover .ab13-track{animation-play-state:paused}
+@keyframes ab13-left{to{transform:translate3d(-50%,0,0)}}
+@keyframes ab13-right{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+
+.ab13-case{flex:0 0 400px;display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,rgba(18,44,60,.9),rgba(7,20,30,.95));border:1px solid rgba(160,220,246,.16);box-shadow:0 30px 70px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06);transition:transform .5s cubic-bezier(.18,1,.3,1),border-color .4s,box-shadow .4s}
+.ab13-case:hover{transform:translateY(-10px) scale(1.025);border-color:rgba(118,231,241,.55);box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(118,231,241,.25),0 0 60px rgba(98,232,251,.18)}
+.ab13-case-visual{position:relative;aspect-ratio:16/9;overflow:hidden;background:#06121c}
+.ab13-case-visual img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 6s ease}
+.ab13-case:hover .ab13-case-visual img{transform:scale(1.06) translateY(-2%)}
+.ab13-case-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,20,30,.85))}
+.ab13-case-info{padding:20px 24px 24px}
+.ab13-case-tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(98,232,251,.1);border:1px solid rgba(98,232,251,.25);color:#9ff2fb;font:600 10.5px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase}
+.ab13-case h3{margin:14px 0 8px;color:#f4fbff;font-size:21px;letter-spacing:-.02em;font-weight:700}
+.ab13-case p{margin:0;color:#a2b9c9;font-size:14.5px;line-height:1.55}
+
+/* mini interface (CRMs) */
+.ab13-ui{position:absolute;inset:14px;border-radius:12px;background:#0a1824;border:1px solid rgba(160,220,246,.14);overflow:hidden;display:flex;flex-direction:column}
+.ab13-ui-top{display:flex;align-items:center;gap:10px;padding:9px 12px;border-bottom:1px solid rgba(160,220,246,.1)}
+.ab13-ui-top span{width:34px;height:7px;border-radius:9px;background:var(--acc);box-shadow:0 0 14px var(--acc)}
+.ab13-ui-top b{font:700 10px/1 ui-monospace,monospace;letter-spacing:.14em;color:#d8eef7}
+.ab13-ui-body{flex:1;display:flex;min-height:0}
+.ab13-ui-side{width:38px;border-right:1px solid rgba(160,220,246,.08);padding:10px 9px;display:grid;gap:9px;align-content:start}
+.ab13-ui-side i{height:7px;border-radius:4px;background:rgba(160,220,246,.18)}
+.ab13-ui-side i:first-child{background:var(--acc)}
+.ab13-ui-board{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:10px}
+.ab13-ui-col{display:flex;flex-direction:column;gap:6px}
+.ab13-ui-col em{height:6px;width:60%;border-radius:4px;background:rgba(160,220,246,.3)}
+.ab13-ui-col s{height:30px;border-radius:7px;background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid rgba(160,220,246,.1);animation:ab13-card 5s ease-in-out infinite}
+.ab13-ui-col:nth-child(2) s{animation-delay:-1.2s}.ab13-ui-col:nth-child(3) s{animation-delay:-2.4s}.ab13-ui-col:nth-child(4) s{animation-delay:-3.6s}
+.ab13-ui-col s:first-of-type{border-color:color-mix(in srgb,var(--acc) 55%,transparent)}
+@keyframes ab13-card{50%{transform:translateY(-3px);background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.04))}}
+.ab13-art{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(60% 70% at 50% 40%,#1b2a3a,#070d14)}
+.ab13-art i{position:absolute;border:1px solid rgba(232,240,248,.28);border-radius:50%}
+.ab13-art i:nth-child(1){width:46%;aspect-ratio:1;animation:ab13-spin 18s linear infinite;border-style:dashed}
+.ab13-art i:nth-child(2){width:30%;aspect-ratio:1;border-color:rgba(118,231,241,.5)}
+.ab13-art i:nth-child(3){width:62%;aspect-ratio:1;border-color:rgba(232,240,248,.1)}
+.ab13-art b{position:relative;font:800 46px/1 Georgia,serif;letter-spacing:.2em;color:#eef6fb;font-style:italic}
+@keyframes ab13-spin{to{transform:rotate(360deg)}}
+
+@media (max-width:760px){
+  .ab13-cases{padding:84px 0 90px}
+  .ab13-cases-head{margin-bottom:40px;padding:0 22px}
+  .ab13-cases-head p{font-size:15.5px}
+  .ab13-case{flex-basis:290px}
+  .ab13-case h3{font-size:18px}
+  .ab13-row,.ab13-row[data-dir="right"]{transform:rotateX(10deg) rotateZ(-3deg)}
+  .ab13-track{gap:16px}.ab13-stage{gap:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .ab13-track{animation:none!important}
+  .ab13-row{overflow-x:auto;transform:none!important}
+}
+
+/* ---------- Sites: troca automática com transição ---------- */
+#produto-sites [data-ab8-render] img{animation:ab13-swap .9s cubic-bezier(.18,1,.3,1)}
+@keyframes ab13-swap{from{opacity:0;transform:scale(1.04);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.ab13-autobar{height:2px;margin-top:10px;border-radius:2px;background:rgba(160,220,246,.14);overflow:hidden}
+.ab13-autobar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#76e7f1,#4e99ff)}
+.ab13-autobar.run i{animation:ab13-bar var(--dur,5s) linear forwards}
+@keyframes ab13-bar{to{width:100%}}
+
+/* ---------- Próximo passo ---------- */
+.ab13-next{padding:40px 0 100px;background:#04101a}
+.ab13-next .os27-solution-close{margin-top:0}
+
+/* ---------- CRM (AIBeck OS): explicação breve + teste ---------- */
+#tour.ab13-crm{padding-top:110px!important;padding-bottom:90px!important}
+#tour .os26-intro,#tour .af-guide.ai-guide-bridge,#tour .ai-mode-intro>p,#tour .os26-bottom-note,#tour .af-intro-heading p{display:none!important}
+.ab13-crm-head{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:end;margin-bottom:46px;padding:48px 52px;border-radius:28px;background:linear-gradient(135deg,rgba(18,48,66,.55),rgba(6,18,28,.85));border:1px solid rgba(160,220,246,.14);box-shadow:0 40px 90px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06);overflow:hidden;isolation:isolate}
+.ab13-crm-head::before{content:"";position:absolute;inset:-40% -10% auto auto;width:60%;height:140%;background:radial-gradient(closest-side,rgba(78,153,255,.22),transparent);filter:blur(20px);z-index:-1;animation:ab13-glow 12s ease-in-out infinite alternate}
+.ab13-crm-head::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(120deg,rgba(118,231,241,.5),transparent 35%,transparent 65%,rgba(143,123,255,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.ab13-os-lockup{display:inline-flex;align-items:center;gap:12px;margin:22px 0 4px;padding:9px 16px 9px 9px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(160,220,246,.18);color:#eaf6fb;font-size:15px;font-weight:600;letter-spacing:-.01em}
+.ab13-os-lockup strong{color:#76e7f1}
+.ab13-os-mark{position:relative;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#76e7f1,#4e99ff 60%,#8f7bff);box-shadow:0 0 22px rgba(98,232,251,.45)}
+.ab13-os-mark b{position:absolute;inset:8px;border-radius:4px;border:2px solid rgba(4,16,26,.85);border-right-color:transparent;animation:ab13-spin 6s linear infinite}
+.ab13-crm-head h2{margin:18px 0 0;color:#f4fbff;font-size:clamp(42px,4.8vw,74px);line-height:.98;letter-spacing:-.045em;font-weight:800}
+.ab13-crm-head h2 em{font-style:normal;background:linear-gradient(90deg,#d8fbff,#76e7f1 45%,#4e99ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ab13-crm-copy p{margin:0 0 20px;color:#a2b9c9;font-size:17px;line-height:1.6;max-width:46ch}
+.ab13-crm-copy p b{color:#eaf6fb}
+.ab13-os-feats{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.ab13-os-feats li{padding:8px 13px;border-radius:999px;background:rgba(98,232,251,.07);border:1px solid rgba(98,232,251,.2);color:#cfeff5;font-size:13px;font-weight:600}
+.ab13-os-try{display:inline-flex;align-items:center;gap:14px;padding:14px 16px 14px 22px;border-radius:999px;background:linear-gradient(90deg,#d8fbff,#9fe9f5);color:#04131d;font-weight:700;font-size:15px;box-shadow:0 14px 40px rgba(98,232,251,.25);transition:transform .3s,box-shadow .3s}
+.ab13-os-try i{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#04131d;color:#9fe9f5;font-style:normal;animation:ab13-bob 1.8s ease-in-out infinite}
+.ab13-os-try:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(98,232,251,.35)}
+@keyframes ab13-bob{50%{transform:translateY(3px)}}
+#tour .af-intro-panel{padding-top:26px!important;padding-bottom:26px!important;margin-bottom:18px!important}
+#tour .af-intro-heading h2,#tour .af-intro-heading h3,#tour .af-intro-heading strong{font-size:clamp(22px,2.2vw,30px)!important}
+#tour .ai-mode-panel{padding-top:22px!important;padding-bottom:22px!important;margin-bottom:22px!important}
+#tour .ai-mode-intro h2,#tour .ai-mode-intro h3{font-size:clamp(22px,2.2vw,32px)!important}
+@media (max-width:760px){
+  #tour.ab13-crm{padding-top:76px!important;padding-bottom:60px!important}
+  .ab13-crm-head{grid-template-columns:1fr;gap:22px;margin-bottom:26px;padding:30px 22px;border-radius:22px}
+  .ab13-crm-copy p{font-size:15.5px}
+  .ab13-os-try{width:100%;justify-content:space-between}
+}
+
+/* ---------- Laboratório interativo: menor, com os 6 produtos ---------- */
+#experiencias.museum{padding-top:90px!important;padding-bottom:90px!important;min-height:0!important}
+#experiencias .container{max-width:1060px!important}
+#experiencias .museum-intro{margin-bottom:30px!important}
+#experiencias .museum-intro h2{font-size:clamp(36px,4.2vw,58px)!important;line-height:1!important}
+#experiencias .showroom{zoom:.86}
+@supports not (zoom:1){#experiencias .showroom{transform:scale(.86);transform-origin:top center;margin-bottom:-12%}}
+@media (max-width:760px){
+  #experiencias.museum{padding-top:64px!important;padding-bottom:64px!important}
+  #experiencias .showroom{zoom:1}
+}
+/* o teste do AIBeck OS ocupa uma janela fixa, com rolagem interna */
+#tour .os26-workspace{max-height:640px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:rgba(118,231,241,.35) transparent}
+@media (max-width:760px){
+  #tour .os26-workspace{max-height:520px}
+  #tour .os26-sidebar{max-height:none}
+}
+#af-onboarding{scroll-margin-top:110px}
+.ab13-crm-lead .ab13-kicker{display:flex}

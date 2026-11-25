@@ -304,7 +304,7 @@ html{scroll-behavior:smooth}body{background:#040a12}
 .kin-words{position:relative;min-height:270px;margin-top:20px}
 .kin-copy{position:absolute;inset:0;opacity:0;transform:translateY(28px);filter:blur(8px);pointer-events:none;transition:opacity .95s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1),filter .95s}
 .kin-copy.is-current{opacity:1;filter:blur(0);transform:translateY(0);pointer-events:auto}
-.kin-copy h1{margin:0;max-width:720px;font-size:clamp(54px,6.2vw,103px);font-weight:800;line-height:.90;letter-spacing:-.088em}.kin-copy h1 em{font-style:normal;color:#83e8f8;background:linear-gradient(110deg,#eff9ff 0%,#89e8fa 46%,#4f8bff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.kin-copy :is(h1,h2){margin:0;max-width:720px;font-size:clamp(54px,6.2vw,103px);font-weight:800;line-height:.90;letter-spacing:-.088em}.kin-copy :is(h1,h2) em{font-style:normal;color:#83e8f8;background:linear-gradient(110deg,#eff9ff 0%,#89e8fa 46%,#4f8bff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .kin-copy p{color:#b2c6d5;font-size:16px;line-height:1.83;max-width:530px;margin:28px 0 0}
 .kin-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:102px;align-items:center}.kin-buttons a{display:inline-flex;align-items:center;justify-content:space-between;gap:20px;padding:17px 22px;border-radius:999px;font-size:13px;font-weight:800;transition:transform .2s,background .2s}.kin-buttons a:hover{transform:translateY(-3px)}.kin-primary{background:#d9f5ff;color:#061625;min-width:197px;box-shadow:0 10px 40px rgba(87,199,240,.12)}.kin-secondary{border:1px solid rgba(190,238,252,.28);color:#eef8ff}
 .kin-bottom-label{position:absolute;bottom:20px;font-size:10px;letter-spacing:.22em;color:#7592a7;display:flex;align-items:center;gap:11px}.kin-bleed{width:24px;height:1px;background:#5b95b3}
@@ -340,8 +340,8 @@ html{scroll-behavior:smooth}body{background:#040a12}
 @keyframes kinProgress{to{transform:scaleX(1)}}
 @keyframes kinAmbient{to{transform:translate(3%,-3%) scale(1.08)}}
 @keyframes kinDrift{to{transform:translate(40px,-60px) rotate(-19deg)}}
-@media (max-width:1130px){.kin-hero{height:auto;min-height:980px}.kin-wrap{grid-template-columns:1fr;width:calc(100% - 50px);height:auto;padding-top:88px}.kin-left{padding-top:25px}.kin-words{min-height:210px}.kin-copy h1{font-size:clamp(58px,8.8vw,94px)}.kin-copy p{max-width:730px}.kin-buttons{margin-top:85px}.kin-right{height:630px;max-width:760px;width:100%;margin:24px auto 0}.kin-bottom-label{display:none}.kin-controls{margin:0 auto;padding:10px 24px}.kin-watermark{width:82vw;right:-32%}}
-@media (max-width:700px){.kin-hero{min-height:0}.kin-wrap{width:calc(100% - 34px);padding-top:87px}.kin-left{padding-top:20px}.kin-sup{font-size:9px;letter-spacing:.10em}.kin-sup span{display:none}.kin-chapter{margin-top:30px}.kin-words{min-height:244px;margin-top:23px}.kin-copy h1{font-size:clamp(44px,12vw,69px);line-height:.96;letter-spacing:-.075em}.kin-copy p{font-size:14px;line-height:1.7;margin-top:18px}.kin-buttons{margin-top:13px;gap:8px}.kin-buttons a{font-size:12px;padding:14px 15px;min-width:0}.kin-right{height:460px;max-width:540px;margin:12px auto 0}.kin-crm-shell{top:82px;left:-1%;width:100%;transform:scale(.94)!important;animation:none}.kin-crm-shell .device{transform-origin:center}.kin-crm-shell .command-ui{min-height:250px}.kin-crm-shell .command-side{width:90px;padding:12px 8px}.kin-crm-shell .command-side div{padding:5px}.kin-crm-shell .command-body{padding:12px 8px}.kin-crm-shell .kpi-row{gap:3px}.kin-crm-shell .kpi{padding:7px 4px}.kin-crm-shell .kpi strong{font-size:12px}.kin-crm-shell .command-top b{font-size:10px}.kin-token-revenue{top:14px;right:1%;min-width:0;padding:12px}.kin-token-revenue strong{font-size:19px}.kin-token-deals{left:0;bottom:18px;padding:12px}.kin-token-deals strong{font-size:15px}.kin-chat-device{top:58px;left:5%;width:86%;min-height:385px;transform:none;animation:none}.kin-chat-head{padding:12px}.kin-chat-bubbles{padding:15px;gap:9px}.kin-bubble{font-size:10px;line-height:1.45;padding:9px 11px}.kin-chat-field{margin:0 12px 12px;padding:10px;font-size:9px}.kin-ai-beacon{width:90px;height:90px;right:0;top:8px}.kin-ai-beacon span{font-size:28px}.kin-ai-beacon small{font-size:5px;bottom:10px}.kin-ai-float{right:-2px;bottom:10px;padding:10px}.kin-ai-float strong{font-size:13px}.kin-ai-float small,.kin-ai-float span{font-size:8px}.kin-node{width:116px;padding:11px;border-radius:14px}.kin-node span{font-size:19px}.kin-node b{font-size:13px}.kin-node small{font-size:8px}.kin-hub{width:125px;height:125px}.kin-hub b{font-size:16px}.kin-hub-mark{font-size:27px}.kin-hub span{font-size:6px}.kin-node-a,.kin-node-b{top:10%}.kin-node-c,.kin-node-d{bottom:12%}.kin-link-lines{width:100%;height:100%}.kin-flow-badge{font-size:7px}.kin-visual-index{font-size:7px;left:0;right:0;bottom:0}.kin-controls{margin-top:7px;padding:0 16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 35px;gap:4px}.kin-select{font-size:8px;min-width:0;padding:11px 6px 16px;letter-spacing:0;border-radius:9px}.kin-select span{display:block;font-size:10px;margin:0 0 4px}.kin-toggle{width:33px;height:36px;font-size:13px}.kin-legal{font-size:9px;padding:12px 17px 23px}.kin-ribbon-one{right:-130vw;top:-5%}.kin-ribbon-two{right:-120vw;top:-10%}}
+@media (max-width:1130px){.kin-hero{height:auto;min-height:980px}.kin-wrap{grid-template-columns:1fr;width:calc(100% - 50px);height:auto;padding-top:88px}.kin-left{padding-top:25px}.kin-words{min-height:210px}.kin-copy :is(h1,h2){font-size:clamp(58px,8.8vw,94px)}.kin-copy p{max-width:730px}.kin-buttons{margin-top:85px}.kin-right{height:630px;max-width:760px;width:100%;margin:24px auto 0}.kin-bottom-label{display:none}.kin-controls{margin:0 auto;padding:10px 24px}.kin-watermark{width:82vw;right:-32%}}
+@media (max-width:700px){.kin-hero{min-height:0}.kin-wrap{width:calc(100% - 34px);padding-top:87px}.kin-left{padding-top:20px}.kin-sup{font-size:9px;letter-spacing:.10em}.kin-sup span{display:none}.kin-chapter{margin-top:30px}.kin-words{min-height:244px;margin-top:23px}.kin-copy :is(h1,h2){font-size:clamp(44px,12vw,69px);line-height:.96;letter-spacing:-.075em}.kin-copy p{font-size:14px;line-height:1.7;margin-top:18px}.kin-buttons{margin-top:13px;gap:8px}.kin-buttons a{font-size:12px;padding:14px 15px;min-width:0}.kin-right{height:460px;max-width:540px;margin:12px auto 0}.kin-crm-shell{top:82px;left:-1%;width:100%;transform:scale(.94)!important;animation:none}.kin-crm-shell .device{transform-origin:center}.kin-crm-shell .command-ui{min-height:250px}.kin-crm-shell .command-side{width:90px;padding:12px 8px}.kin-crm-shell .command-side div{padding:5px}.kin-crm-shell .command-body{padding:12px 8px}.kin-crm-shell .kpi-row{gap:3px}.kin-crm-shell .kpi{padding:7px 4px}.kin-crm-shell .kpi strong{font-size:12px}.kin-crm-shell .command-top b{font-size:10px}.kin-token-revenue{top:14px;right:1%;min-width:0;padding:12px}.kin-token-revenue strong{font-size:19px}.kin-token-deals{left:0;bottom:18px;padding:12px}.kin-token-deals strong{font-size:15px}.kin-chat-device{top:58px;left:5%;width:86%;min-height:385px;transform:none;animation:none}.kin-chat-head{padding:12px}.kin-chat-bubbles{padding:15px;gap:9px}.kin-bubble{font-size:10px;line-height:1.45;padding:9px 11px}.kin-chat-field{margin:0 12px 12px;padding:10px;font-size:9px}.kin-ai-beacon{width:90px;height:90px;right:0;top:8px}.kin-ai-beacon span{font-size:28px}.kin-ai-beacon small{font-size:5px;bottom:10px}.kin-ai-float{right:-2px;bottom:10px;padding:10px}.kin-ai-float strong{font-size:13px}.kin-ai-float small,.kin-ai-float span{font-size:8px}.kin-node{width:116px;padding:11px;border-radius:14px}.kin-node span{font-size:19px}.kin-node b{font-size:13px}.kin-node small{font-size:8px}.kin-hub{width:125px;height:125px}.kin-hub b{font-size:16px}.kin-hub-mark{font-size:27px}.kin-hub span{font-size:6px}.kin-node-a,.kin-node-b{top:10%}.kin-node-c,.kin-node-d{bottom:12%}.kin-link-lines{width:100%;height:100%}.kin-flow-badge{font-size:7px}.kin-visual-index{font-size:7px;left:0;right:0;bottom:0}.kin-controls{margin-top:7px;padding:0 16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 35px;gap:4px}.kin-select{font-size:8px;min-width:0;padding:11px 6px 16px;letter-spacing:0;border-radius:9px}.kin-select span{display:block;font-size:10px;margin:0 0 4px}.kin-toggle{width:33px;height:36px;font-size:13px}.kin-legal{font-size:9px;padding:12px 17px 23px}.kin-ribbon-one{right:-130vw;top:-5%}.kin-ribbon-two{right:-120vw;top:-10%}}
 @media (prefers-reduced-motion:reduce){.kin-hero *, .kin-hero *::before, .kin-hero *::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.kin-visual-scene:not(.is-current),.kin-copy:not(.is-current){display:none}.kin-bubble{opacity:1;transform:none}}
 
 /* AIBeck V25 - progressive addition; original cinematic V24 hero retained */
@@ -767,7 +767,7 @@ body.ab-case-open{overflow:hidden!important}
 .kin-hero{height:clamp(750px,96svh,970px);min-height:0}
 .kin-wrap{max-width:1280px;width:calc(100% - clamp(36px,6vw,90px));grid-template-columns:minmax(0,.46fr) minmax(0,.54fr);gap:clamp(18px,3vw,46px)}
 .kin-left{padding-top:clamp(48px,5vw,88px)}
-.kin-copy h1{max-width:680px}
+.kin-copy :is(h1,h2){max-width:680px}
 .kin-right{min-width:0}
 /* Avoid oversized spans/blank space at medium widths */
 @media (max-width:1120px){
@@ -953,7 +953,7 @@ html,body{max-width:100%;overflow-x:clip}
   .kin-sup{font-size:9px!important;letter-spacing:.11em}
   .kin-chapter{margin-top:26px!important}
   .kin-words{margin-top:20px!important;min-height:245px!important}
-  .kin-copy h1{font-size:clamp(45px,11.8vw,69px)!important;line-height:.94!important;letter-spacing:-.078em!important;max-width:100%!important}
+  .kin-copy :is(h1,h2){font-size:clamp(45px,11.8vw,69px)!important;line-height:.94!important;letter-spacing:-.078em!important;max-width:100%!important}
   .kin-copy p{font-size:14px!important;line-height:1.65!important;max-width:100%!important;margin-top:16px!important}
   .kin-buttons{margin:10px 0 9px!important;gap:10px!important;min-height:48px}
   .kin-buttons a{font-size:12px!important;line-height:1.25;padding:13px 14px!important}
@@ -964,7 +964,7 @@ html,body{max-width:100%;overflow-x:clip}
   .kin-legal{padding:13px 17px 18px!important}
   .kin-visual-index{opacity:.55}
 }
-@media(max-width:380px){.kin-select{font-size:7px!important}.kin-copy h1{font-size:43px!important}}
+@media(max-width:380px){.kin-select{font-size:7px!important}.kin-copy :is(h1,h2){font-size:43px!important}}
 
 
 /* AIBeck Signature Master / proportion & interaction polish */
@@ -995,7 +995,7 @@ html,body{max-width:100%;overflow-x:clip}
 .ablab-shell{max-width:1240px!important;margin:auto}
 .case-experience,.museum{scroll-margin-top:78px}
 .kin-hero{overflow:hidden}
-@media(min-width:1101px) and (max-width:1510px){.kin-wrap{max-width:1280px!important;padding-inline:clamp(22px,3vw,48px)}.kin-left h1{font-size:clamp(50px,5.1vw,82px)!important}.kin-right{min-width:0}.kin-controls{width:min(780px,65vw)!important}}
+@media(min-width:1101px) and (max-width:1510px){.kin-wrap{max-width:1280px!important;padding-inline:clamp(22px,3vw,48px)}.kin-left :is(h1,h2){font-size:clamp(50px,5.1vw,82px)!important}.kin-right{min-width:0}.kin-controls{width:min(780px,65vw)!important}}
 @media(max-width:1100px){.master-proof-head{grid-template-columns:1fr}.master-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){
  .container{width:calc(100% - 30px)!important;max-width:100%!important}
@@ -1004,7 +1004,7 @@ html,body{max-width:100%;overflow-x:clip}
  .kin-left{min-width:0;gap:8px}
  .kin-words{min-height:unset!important}
  .kin-copy{max-width:100%}
- .kin-copy h1{font-size:clamp(37px,10.3vw,52px)!important;line-height:1.01!important}
+ .kin-copy :is(h1,h2){font-size:clamp(37px,10.3vw,52px)!important;line-height:1.01!important}
  .kin-copy p{font-size:14px!important;line-height:1.55!important;margin-block:14px 12px!important}
  .kin-buttons{gap:8px!important;margin-top:10px!important}
  .kin-primary,.kin-secondary{font-size:12px!important;min-height:45px!important;flex:1 1 45%;padding:12px 8px!important}
