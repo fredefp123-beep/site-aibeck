@@ -28,3 +28,11 @@
   .ab15-scroll{display:none}
 }
 @media (prefers-reduced-motion:reduce){.ab15-copy,.ab15-scroll{animation:none;opacity:1;translate:none}}
+
+/* links de serviços (SEO local) no rodapé */
+.footer .ab-seo-links{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:center;margin-top:14px;padding-top:14px;border-top:1px solid rgba(120,200,255,.12);font-size:13px}
+.footer .ab-seo-links a{color:rgba(220,236,255,.72);text-decoration:none}
+.footer .ab-seo-links a:hover{color:#7fe3ff}
+.footer .ab-seo-links span{color:rgba(220,236,255,.45);font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.footer .footer-inner{flex-wrap:wrap}
+.footer .ab-seo-links{order:99}
