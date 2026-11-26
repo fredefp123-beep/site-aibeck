@@ -298,7 +298,11 @@
   position: fixed; left: 20px; bottom: 20px; z-index: 60; margin: 0; display: inline-flex; align-items: center; gap: 10px;
   min-height: 40px; padding: 0 16px; border-radius: 999px; background: rgb(21 18 14 / 0.86); color: #e8dcc6;
   border: 1px solid rgb(210 179 124 / 0.4); font-size: 13px; letter-spacing: 0.02em; backdrop-filter: blur(8px);
+  opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 0.45s var(--macio), transform 0.5s var(--macio);
 }
+.previa.is-visivel { opacity: 1; transform: none; pointer-events: auto; }
 .previa b { color: #d2b37c; font-weight: 600; }
 .previa__ponto { width: 6px; height: 6px; border-radius: 50%; background: #d2b37c; }
 @media (max-width: 760px) { .previa { left: 14px; bottom: 14px; min-height: 36px; padding: 0 12px; font-size: 12px; } }
+
+@media (max-width: 400px) { .hero .marca__nome { font-size: 15px; } }

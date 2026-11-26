@@ -26,7 +26,11 @@ export function extras() {
   const zap = document.querySelector('[data-zap]');
   const hero = document.querySelector('.hero');
   if (zap && hero && 'IntersectionObserver' in window) {
-    new IntersectionObserver(([e]) => zap.classList.toggle('is-visivel', !e.isIntersecting), { threshold: 0.15 }).observe(hero);
+    const previa = document.querySelector('.previa');
+    new IntersectionObserver(([e]) => {
+      zap.classList.toggle('is-visivel', !e.isIntersecting);
+      previa?.classList.toggle('is-visivel', !e.isIntersecting);
+    }, { threshold: 0.15 }).observe(hero);
   } else if (zap) zap.classList.add('is-visivel');
 }
 
