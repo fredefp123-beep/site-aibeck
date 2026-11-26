@@ -1,0 +1,139 @@
+/* Por que tratar comigo: uma faixa gelo com o título, as setas e uma fila de cartões de tipos diferentes (foto com
+   título, cor chapada, foto grande, número com colunas). A fila rola de lado como qualquer rolagem lateral. */
+/* a faixa é um painel de cantos arredondados, a 12 px da tela como o card do hero: nenhuma linha reta de ponta a
+   ponta entre uma seção e outra */
+.motivos { padding: 12px var(--borda); }
+.motivos .painel { padding-block: calc(92 * var(--su)) calc(100 * var(--su)); }
+.motivos .conteudo { padding-inline: calc(var(--lado) - var(--borda)); }
+.motivos__topo { display: flex; align-items: flex-end; justify-content: space-between; gap: calc(40 * var(--su)); }
+.motivos__topo .titulo { max-width: 8.2em; }
+.motivos__topo .setas { padding-bottom: calc(10 * var(--su)); }
+
+.trilho {
+  --alto: calc(392 * var(--su)); /* altura dos cartões */
+  --sobe: 0px; /* todos os cartões alinhados, na mesma altura */
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: calc(24 * var(--su));
+  /* a fila é uma janela da largura do conteúdo, de cantos arredondados: os cartões entram e saem por ela */
+  margin: calc(48 * var(--su)) calc(var(--lado) - var(--borda)) 0;
+  padding: var(--sobe) 0 0;
+  border-radius: calc(24 * var(--su));
+  overflow-x: auto;
+  overflow-y: hidden; /* a fila só rola de lado */
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.trilho::-webkit-scrollbar { display: none; }
+/* os cartões entram em foco sem subir: um cartão deslocado para baixo daria à fila uma rolagem vertical */
+.js .trilho [data-foco] { transform: scale(0.97); }
+.js .trilho [data-foco].is-visto { transform: none; }
+.trilho.is-arrastando { cursor: grabbing; }
+.trilho:focus-visible { outline-offset: -4px; border-radius: 12px; }
+
+.cartao {
+  flex: none;
+  height: var(--alto);
+  border-radius: calc(24 * var(--su));
+  overflow: hidden;
+  background: var(--papel);
+}
+.cartao img { width: 100%; height: 100%; object-fit: cover; -webkit-user-drag: none; }
+
+/* título em cima, foto embaixo */
+.cartao--foto-titulo { display: flex; flex-direction: column; width: calc(292 * var(--su)); padding: calc(22 * var(--su)) calc(16 * var(--su)) calc(16 * var(--su)); }
+.cartao--foto-titulo h3 { min-height: 2.5em; padding-inline: calc(6 * var(--su)); font-size: max(19.7px, calc(24 * var(--su))); font-weight: 500; line-height: 1.22; letter-spacing: -0.03em; text-wrap: balance; }
+.cartao--foto-titulo img { flex: 1; min-height: 0; margin-top: calc(18 * var(--su)); border-radius: calc(14 * var(--su)); }
+
+/* cor chapada: os rostos em cima, o selo e a frase embaixo */
+.cartao--cor {
+  --tinta: var(--sobre-acento); /* a frase que se lê usa estas três: aqui ela é branca sobre a cor */
+  --apagado: color-mix(in srgb, var(--sobre-acento) 46%, transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(384 * var(--su));
+  padding: calc(26 * var(--su)) calc(26 * var(--su)) calc(30 * var(--su));
+  background: var(--acento);
+  color: var(--sobre-acento);
+}
+.cartao--cor .varre { background-image: linear-gradient(90deg, var(--tinta) calc(var(--p, 0) * 1% - 14%), var(--apagado) calc(var(--p, 0) * 1%)); }
+.cartao__gente { display: flex; align-items: center; gap: calc(12 * var(--su)); font-size: 17px; }
+.cartao__rostos { display: flex; }
+.cartao__rostos img { width: calc(36 * var(--su)); height: calc(36 * var(--su)); border-radius: 50%; box-shadow: 0 0 0 2px var(--acento); }
+.cartao__rostos img + img { margin-left: calc(-10 * var(--su)); }
+.cartao__selo {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(7 * var(--su));
+  height: calc(36 * var(--su));
+  padding-inline: calc(13 * var(--su)) calc(16 * var(--su));
+  border-radius: 999px;
+  background: var(--acento-claro);
+  color: var(--acento);
+  font-size: 15px;
+  font-weight: 500;
+}
+.cartao__selo svg { width: calc(17 * var(--su)); height: calc(17 * var(--su)); }
+.cartao__frase { margin-top: calc(20 * var(--su)); font-size: max(19.7px, calc(24 * var(--su))); line-height: 1.24; letter-spacing: -0.028em; }
+
+/* a foto grande, mais alta na fila */
+.cartao--foto { width: calc(470 * var(--su)); margin-bottom: var(--sobe); }
+
+/* o número e as três colunas */
+.cartao--numero { display: flex; flex-direction: column; width: calc(284 * var(--su)); padding: calc(26 * var(--su)) calc(26 * var(--su)) calc(22 * var(--su)); }
+.cartao__numero { font-size: calc(52 * var(--su)); font-weight: 500; line-height: 1; letter-spacing: -0.045em; }
+.cartao__rotulo { max-width: 12em; margin-top: calc(12 * var(--su)); color: var(--tinta-2); font-size: 17px; line-height: 1.4; }
+.colunas { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(18 * var(--su)); align-items: end; min-height: 0; margin-top: calc(18 * var(--su)); }
+.colunas span { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: calc(10 * var(--su)); height: 100%; color: var(--tinta-2); font-size: 15px; }
+.colunas i {
+  display: block;
+  width: 100%;
+  max-width: calc(58 * var(--su));
+  height: calc(var(--h) * (100% - 30 * var(--su)));
+  border-radius: 999px;
+  background: var(--acento);
+  transform-origin: 50% 100%;
+}
+.colunas .is-destaque i { background: var(--acento-claro); }
+/* as colunas crescem de baixo quando o cartão entra (motion/trilho.js liga a classe) */
+.js .colunas i { transform: scaleY(0.12); opacity: 0; transition: transform 0.9s var(--macio), opacity 0.4s linear; }
+.js .colunas span:nth-child(2) i { transition-delay: 0.1s; }
+.js .colunas span:nth-child(3) i { transition-delay: 0.2s; }
+.js .colunas.is-cheia i { transform: none; opacity: 1; }
+
+@media (hover: hover) {
+  .cartao--foto img, .cartao--foto-titulo img { transition: transform 1s var(--macio); }
+  .cartao--foto:hover img { transform: scale(1.04); }
+}
+
+@media (max-width: 760px) {
+  .motivos .painel { padding-block: 64px 68px; }
+  /* no celular a fila se arrasta com o dedo: as setas saem e o título ocupa a largura */
+  .motivos__topo .titulo { max-width: none; }
+  .motivos__topo .setas { display: none; }
+  /* no celular a fila vai até a borda do painel */
+  .trilho { --alto: 356px; --sobe: 0px; gap: 12px; margin: 28px 0 0; padding: 0 calc(var(--lado) - var(--borda)); border-radius: 0; }
+  .cartao { border-radius: 22px; }
+  .cartao--foto-titulo { width: 262px; padding: 20px 14px 14px; }
+  .cartao--foto-titulo h3 { padding-inline: 6px; font-size: 21px; }
+  .cartao--foto-titulo img { margin-top: 14px; border-radius: 14px; }
+  .cartao--cor { width: 300px; padding: 22px 22px 24px; }
+  .cartao__gente { gap: 10px; font-size: 15px; }
+  .cartao__rostos img { width: 34px; height: 34px; }
+  .cartao__rostos img + img { margin-left: -9px; }
+  .cartao__selo { height: 34px; padding-inline: 12px 14px; gap: 6px; font-size: 13.5px; }
+  .cartao__selo svg { width: 16px; height: 16px; }
+  .cartao__frase { margin-top: 16px; font-size: 21px; }
+  .cartao--foto { width: 310px; margin-bottom: 0; }
+  .cartao--numero { width: 236px; padding: 22px 22px 18px; }
+  .cartao__numero { font-size: 40px; }
+  .cartao__rotulo { margin-top: 10px; font-size: 15px; }
+  .colunas { gap: 14px; margin-top: 14px; }
+  .colunas span { gap: 8px; font-size: 13px; }
+  .colunas i { max-width: 50px; height: calc(var(--h) * (100% - 28px)); }
+}

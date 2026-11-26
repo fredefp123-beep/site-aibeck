@@ -1,0 +1,14 @@
+/* Folha única do site, ligada no <head> do index.html (segura a primeira pintura até chegar). Nunca importada pelo
+   JS: no dev do Vite ela só entraria depois dos módulos e a página apareceria crua por um instante. */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400..700&family=Playfair+Display:ital,wght@0,400..600;1,400..600&family=Mrs+Saint+Delafield&display=swap');
+@import './tokens.css';
+@import './base.css';
+@import '../sections/botao.css';
+@import '../sections/hero.css';
+@import '../sections/sobre.css';
+@import '../sections/consulta.css';
+@import '../sections/motivos.css';
+@import '../sections/conteudo.css';
+@import '../sections/contato.css';
+@import '../sections/extras.css';
+@import '../sections/barra.css';

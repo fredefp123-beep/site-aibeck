@@ -8,3 +8,6 @@
 
 /assets/image-*
   Cache-Control: public, max-age=31536000, immutable
+
+/previas/*
+  X-Robots-Tag: noindex, nofollow

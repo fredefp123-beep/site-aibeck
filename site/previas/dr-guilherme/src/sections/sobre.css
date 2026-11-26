@@ -1,0 +1,75 @@
+/* Sobre: a frase grande à direita (lida linha a linha), os dois retratos pequenos à esquerda, os números embaixo
+   e a foto de uma consulta no canto. */
+.sobre { padding-block: calc(132 * var(--su)) calc(150 * var(--su)); }
+.sobre__grade {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7.4fr);
+  column-gap: calc(40 * var(--su));
+  row-gap: calc(84 * var(--su));
+  align-items: start;
+}
+.sobre__lado { display: grid; justify-items: start; gap: calc(92 * var(--su)); }
+.sobre__retratos { display: flex; gap: calc(18 * var(--su)); }
+.sobre__retratos img {
+  width: calc(150 * var(--su));
+  aspect-ratio: 150 / 176;
+  object-fit: cover;
+  border-radius: calc(16 * var(--su));
+  background: var(--gelo-2);
+}
+
+.sobre__frase {
+  font-size: calc(46 * var(--su));
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+/* a assinatura entra depois da leitura, da esquerda para a direita, como quem assina */
+.sobre__assina {
+  width: fit-content;
+  margin-top: calc(26 * var(--su));
+  font-family: var(--f-assina);
+  font-size: calc(58 * var(--su));
+  line-height: 1;
+  color: var(--tinta);
+}
+.sobre__assina span { display: block; padding: 0.28em 0.3em 0.32em 0.1em; margin: -0.28em -0.3em -0.32em -0.1em; }
+.js .sobre__assina span { clip-path: inset(0 100% 0 0); }
+.js .sobre__assina.is-assinada span { clip-path: inset(0 0 0 0); transition: clip-path 1.15s var(--vai-volta); }
+
+/* os números ocupam a linha de baixo inteira; a foto divide essa linha com eles, à direita */
+.sobre__numeros { grid-column: 1 / -1; grid-row: 2; align-self: end; max-width: calc(720 * var(--su)); }
+.sobre__legenda { color: var(--tinta-2); font-size: 17px; }
+.numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: calc(24 * var(--su)); margin-top: calc(26 * var(--su)); }
+.numeros dt { font-size: calc(52 * var(--su)); font-weight: 500; line-height: 1; letter-spacing: -0.045em; }
+.numeros dd { margin-top: calc(12 * var(--su)); color: var(--tinta-2); font-size: 17px; }
+
+.sobre__foto {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  width: calc(372 * var(--su));
+  aspect-ratio: 372 / 271;
+  object-fit: cover;
+  border-radius: calc(20 * var(--su));
+  background: var(--gelo-2);
+}
+
+@media (max-width: 760px) {
+  .sobre { padding-block: 72px 84px; }
+  .sobre__grade { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+  .sobre__lado { display: contents; }
+  .sobre__lado .etiqueta { order: 0; justify-self: start; }
+  .sobre__fala { order: 1; margin-top: -16px; }
+  .sobre__retratos { order: 2; gap: 12px; }
+  .sobre__retratos img { width: calc(50% - 6px); aspect-ratio: 4 / 4.6; border-radius: 16px; }
+  .sobre__numeros { order: 3; grid-column: auto; grid-row: auto; max-width: none; }
+  .sobre__foto { order: 4; grid-column: auto; grid-row: auto; width: 100%; aspect-ratio: 4 / 3; border-radius: 20px; }
+  .sobre__frase { font-size: clamp(28px, 7.9vw, 34px); line-height: 1.18; }
+  .sobre__assina { font-size: 46px; margin-top: 18px; }
+  .sobre__legenda { font-size: 15px; }
+  .numeros { gap: 12px; margin-top: 18px; }
+  .numeros dt { font-size: clamp(27px, 8.3vw, 36px); }
+  .numeros dd { margin-top: 8px; font-size: 13.5px; line-height: 1.35; }
+}

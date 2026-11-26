@@ -1,0 +1,41 @@
+/* A barra fixa: uma pílula branca no topo, que só aparece depois do hero e quando a pessoa rola para cima
+   (motion/barra.js). Tem fundo próprio: nunca escreve por cima do conteúdo. */
+.barra {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: calc(22 * var(--su));
+  height: 60px;
+  padding: 0 7px 0 20px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.9);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  box-shadow: 0 0 0 1px rgb(12 17 18 / 0.06), 0 14px 34px -14px rgb(12 17 18 / 0.28);
+  white-space: nowrap;
+  transform: translate3d(-50%, -90px, 0);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.5s var(--macio), opacity 0.3s var(--macio), visibility 0s 0.5s;
+}
+.barra.is-vista { transform: translate3d(-50%, 0, 0); opacity: 1; visibility: visible; transition: transform 0.6s var(--macio), opacity 0.4s var(--macio), visibility 0s; }
+html:not(.js) .barra { display: none; }
+.barra__marca { display: inline-flex; align-items: center; gap: 9px; font-size: 17px; font-weight: 600; letter-spacing: -0.03em; border-radius: 8px; }
+.barra__marca svg { width: 22px; height: 22px; color: var(--acento); transition: transform 0.6s var(--macio); }
+.barra__menu { display: flex; gap: 2px; }
+.barra__menu a { display: grid; place-items: center; height: 40px; padding-inline: 13px; border-radius: 999px; color: var(--tinta-2); font-size: 15px; transition: background-color 0.3s var(--macio), color 0.3s var(--macio); }
+.barra__menu a[aria-current='true'] { color: var(--tinta); background: var(--gelo-2); }
+.barra .botao { --b: 1px; height: 46px; min-height: 44px; font-size: 15px; box-shadow: none; }
+@media (hover: hover) {
+  .barra__menu a:hover { color: var(--tinta); background: var(--gelo); }
+  .barra__marca:hover svg { transform: rotate(-12deg) scale(1.08); }
+}
+@media (max-width: 900px) {
+  .barra { top: max(8px, env(safe-area-inset-top)); gap: 14px; height: 56px; padding: 0 6px 0 16px; }
+  .barra__menu { display: none; }
+  .barra__marca { font-size: 16px; }
+  .barra .botao { height: 44px; padding-inline: 18px; }
+}

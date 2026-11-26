@@ -1,0 +1,115 @@
+/* Tokens da Dra. Lia Prudente. As cores são papéis, não nomes de cor: trocar de tema é trocar só o bloco do tema.
+   Tema padrão: petróleo e menta. Os outros se provam ao vivo com ?tema=ciano, ?tema=lavanda ou ?tema=grafite. */
+:root {
+  /* Identidade: marfim, preto-café e dourado champanhe. Premium, sem enfeite. */
+  --papel: #f6f2eb;
+  --gelo: #ede6db;
+  --gelo-2: #e3dbcd;
+  --linha: #ddd3c4;
+  --linha-forte: #c8bba6;
+
+  /* texto */
+  --tinta: #17140f;
+  --tinta-2: #554e47;
+  --tinta-3: #8a8178;
+  --apagado: #d8cebe; /* a frase antes de a leitura passar por ela */
+
+  /* acento: preto-café nos botões e painéis; dourado nos detalhes */
+  --acento: #18150f;
+  --acento-forte: #000000;
+  --acento-claro: #d2b37c;
+  --acento-suave: #efe6d5;
+  --ouro: #b8925a;
+  --ouro-texto: #7d5a28;
+  --sobre-acento: #f6f2eb;
+
+  /* hero */
+  --hero-fundo: #12100d;
+  --hero-veu: 18 15 11;
+
+  --f: 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-titulo: 'Playfair Display', 'Times New Roman', serif; /* títulos: serifa clássica de consultório */
+  --f-assina: 'Mrs Saint Delafield', 'Snell Roundhand', cursive; /* só a assinatura */
+
+  /* curvas: tudo entra macio e sai rápido */
+  --macio: cubic-bezier(0.22, 1, 0.36, 1);
+  --vai-volta: cubic-bezier(0.65, 0, 0.35, 1);
+  --sai: cubic-bezier(0.5, 0, 0.75, 0);
+
+  /* escala de site: 1 px de design até 1280 de largura, encolhe abaixo, nunca cresce */
+  --su: min(1px, 100vw / 1280);
+  /* escala de cena (o hero): acompanha a tela, até 1,3× em monitor grande */
+  --u: min(100vw / 1440, 100svh / 900, 1.3px);
+
+  --borda: 12px; /* margem do card do hero até a tela */
+  --lado: max(calc(80 * var(--su)), (100vw - 1280px) / 2); /* da tela até o conteúdo */
+  /* da tela até o texto do hero: igual ao das seções até 1440 de largura; em tela maior o card é de borda a borda
+     e o texto fica perto da borda dele, longe do rosto da foto */
+  --lado-hero: max(calc(80 * var(--su)), calc(80 * var(--u)));
+  --raio: calc(16 * var(--su));
+  --raio-painel: calc(22 * var(--su));
+}
+
+:root[data-tema='bronze'] {
+  --papel: #f3eee6;
+  --gelo: #e9e0d3;
+  --gelo-2: #ded3c3;
+  --linha: #dcd1c1;
+  --linha-forte: #c6b8a3;
+  --apagado: #d6cab8;
+  --acento: #9a6a2c;
+  --acento-forte: #7a521f;
+  --acento-claro: #e3c9a3;
+  --acento-suave: #efe3d2;
+  --hero-fundo: #1a1611;
+  --hero-veu: 22 17 11;
+}
+:root[data-tema='claro'] {
+  --papel: #ffffff;
+  --gelo: #f4f5f7;
+  --gelo-2: #eceef2;
+  --linha: #e2e5ea;
+  --linha-forte: #c9ced6;
+  --apagado: #cfd4db;
+}
+:root[data-tema='ciano'] {
+  --acento: #1790ad;
+  --acento-forte: #0f7a94;
+  --acento-claro: #6fe0f5;
+  --acento-suave: #e0f3f8;
+  --hero-fundo: #14272e;
+  --hero-veu: 6 26 36;
+}
+:root[data-tema='lavanda'] {
+  --acento: #5f52e0;
+  --acento-forte: #4c40c4;
+  --acento-claro: #b7b0ff;
+  --acento-suave: #eceafd;
+  --hero-fundo: #1c1b33;
+  --hero-veu: 18 16 44;
+}
+:root[data-tema='grafite'] {
+  --acento: #171b1c;
+  --acento-forte: #000000;
+  --acento-claro: #a9b3b5;
+  --acento-suave: #eceeee;
+  --hero-fundo: #191d1e;
+  --hero-veu: 10 12 12;
+}
+
+/* tela estreita e alta (tablet em pé): o hero não encolhe abaixo de 0,72 */
+@media (min-width: 761px) and (min-height: 700px) {
+  :root { --u: max(0.72px, min(100vw / 1440, 100svh / 900, 1.3px)); }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --su: min(1px, 100vw / 390);
+    --u: min(100vw / 390, 100svh / 844);
+    --borda: 8px;
+    --lado: 20px;
+    --lado-hero: 24px;
+    --raio: 22px;
+    --raio-painel: 24px;
+  }
+}

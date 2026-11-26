@@ -1,0 +1,194 @@
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; overscroll-behavior-x: none; }
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--papel);
+  scrollbar-width: thin;
+  scrollbar-color: var(--linha-forte) transparent;
+}
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--f);
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+h1, h2, h3, p, figure, blockquote, dl, dt, dd, ol, ul { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 3px; border-radius: 999px; }
+::selection { background: var(--acento); color: var(--sobre-acento); }
+
+/* o conteúdo das seções: até 1280 de largura, alinhado com o texto do hero */
+.conteudo { padding-inline: var(--lado); }
+
+.titulo {
+  font-size: calc(56 * var(--su));
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.038em;
+  text-wrap: balance;
+}
+.apoio { color: var(--tinta-2); font-size: 18px; line-height: 1.6; text-wrap: pretty; }
+
+/* painel: um card gelo de cantos arredondados, a 12 px da tela, que guarda uma seção inteira */
+.painel { border-radius: var(--raio-painel); background: var(--gelo); overflow: clip; }
+
+/* o nome da seção: uma pílula pequena de contorno */
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  height: calc(36 * var(--su));
+  padding-inline: calc(16 * var(--su));
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  background: var(--papel);
+  box-shadow: 0 1px 2px rgb(12 17 18 / 0.04);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+/* Entrada "em foco": o que entra chega desfocado, um pouco abaixo, e assenta. Só vale com o JS no ar (.js) e
+   depois de a página assentar (.assentou): antes disso nada tem transição, para não piscar na primeira pintura.
+   Terminada a entrada, o motion/foco.js tira o atributo e a peça volta a ter só o estilo dela. */
+.js [data-foco] {
+  opacity: 0;
+  filter: blur(calc(14 * var(--su)));
+  transform: translate3d(0, calc(26 * var(--su)), 0);
+}
+.js.assentou [data-foco] {
+  transition: opacity 0.6s var(--macio), filter 0.7s var(--macio), transform 0.8s var(--macio);
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+/* a abertura (hero) entra mais rápida: passo de 40 ms e entradas curtas */
+.js.assentou .hero [data-foco] {
+  transition: opacity 0.45s var(--macio), filter 0.5s var(--macio), transform 0.6s var(--macio);
+  transition-delay: calc(var(--i, 0) * 40ms);
+}
+.js [data-foco].is-visto { opacity: 1; filter: blur(0); transform: none; }
+.reduzido [data-foco] { opacity: 1; filter: none; transform: none; transition: none; }
+
+/* A frase que se lê sozinha (motion/varredura.js): nasce apagada e a tinta passa linha por linha. Cada linha é uma
+   caixa com um degradê recortado nas letras; --p (0 a 118) diz onde a varredura está. A caixa tem folga em volta
+   para os acentos e as pernas das letras não ficarem fora do recorte. */
+.js [data-varredura] { color: var(--apagado); }
+.varre {
+  display: block;
+  width: fit-content;
+  padding: 0.16em 0.08em;
+  margin: -0.16em -0.08em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    var(--tinta) calc(var(--p, 0) * 1% - 18%),
+    var(--acento) calc(var(--p, 0) * 1% - 6%),
+    var(--apagado) calc(var(--p, 0) * 1%)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Barra de rolagem. No computador a nativa sai: ela ocupa largura, e com ela o card do hero e os painéis ficam com
+   a margem da direita maior que a da esquerda. No lugar entra a própria (motion/scrollbar.js), que flutua por cima:
+   um fio que aparece ao rolar. Só com o JS no ar; sem ele, e no toque, a barra continua a do navegador. */
+@media (hover: hover) and (pointer: fine) {
+  html.js { scrollbar-width: none; }
+  html.js::-webkit-scrollbar { display: none; }
+}
+.rolagem { position: fixed; top: 6px; right: 0; bottom: 6px; z-index: 60; width: 12px; pointer-events: none; }
+.rolagem.is-nada { display: none; }
+/* a alça é larga para o cursor achar; o fio visível é o ::after */
+.rolagem__alca { position: absolute; top: 0; right: 0; width: 12px; pointer-events: auto; cursor: grab; touch-action: none; }
+.rolagem__alca::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 3px;
+  bottom: 0;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--tinta);
+  opacity: 0;
+  transition: opacity 0.5s var(--macio), width 0.25s var(--macio);
+}
+.rolagem.is-on .rolagem__alca::after { opacity: 0.32; }
+.rolagem.is-arrasto .rolagem__alca { cursor: grabbing; }
+.rolagem.is-arrasto .rolagem__alca::after { width: 6px; opacity: 0.62; }
+@media (hover: hover) {
+  .rolagem__alca:hover::after { width: 6px; opacity: 0.62; }
+}
+
+/* link para pular a navegação (aparece só no foco do teclado) */
+.pular {
+  position: fixed; left: 16px; top: 16px; z-index: 100; padding: 10px 18px; border-radius: 999px;
+  background: var(--tinta); color: #fff; font-size: 14px; transform: translateY(-200%);
+  transition: transform 0.25s var(--macio);
+}
+.pular:focus-visible { transform: none; }
+
+.so-leitor {
+  position: absolute; width: 1px; height: 1px; margin: 0; padding: 0; overflow: hidden; clip-path: inset(50%);
+  white-space: nowrap; border: 0;
+}
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .titulo { font-size: max(31.2px, calc(38 * var(--su))); }
+  .apoio { font-size: 16px; }
+  .etiqueta { height: 34px; padding-inline: 14px; font-size: 13px; }
+}
+
+/* Movimento reduzido: nenhuma transição. A duração é zero, e não o "0,01 ms" de costume: com qualquer duração o
+   Safari começa uma transição do tamanho da letra e da largura quando a folha chega, e o varredura.js, que mede
+   onde as frases quebram, contava as linhas com a letra ainda pequena (a frase saía em uma ou duas linhas largas). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0s !important; transition-delay: 0s !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* Identidade do Dr. Guilherme: títulos e frases grandes em serifa (Playfair Display), texto em Manrope.
+   A serifa pede menos aperto entre letras que a grotesca. */
+html .titulo,
+html .hero__titulo,
+html .sobre__frase,
+html .jornada__frase,
+html .chamada-meio__titulo,
+html .consulta__nome,
+html .proc h3,
+html .jornada__passos h3,
+html .recup__fases b,
+html .formacao__ano,
+html .numeros dt,
+html .cartao__numero,
+html .cartao--foto-titulo h3,
+html .texto h3,
+html .folha__texto h2,
+html .faq__lista summary,
+html .rodape__email,
+html .local__dados dd b,
+html .casos__titulo,
+html .caso__nome,
+html .agenda__dados b,
+html .contato__titulo {
+  font-family: var(--f-titulo);
+  font-weight: 500;
+  letter-spacing: -0.012em;
+}
+html .faq__lista summary, html .texto h3, html .rodape__email { font-weight: 400; }
+.etiqueta {
+  height: auto; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none;
+  gap: 14px; color: var(--ouro-texto); font-size: 12.5px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase;
+}
+.etiqueta::before { content: ''; width: 32px; height: 1px; background: currentColor; opacity: 0.8; }
+
+/* grão fino de filme nos painéis escuros: tira o chapado do digital */
+:root { --grao: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); }

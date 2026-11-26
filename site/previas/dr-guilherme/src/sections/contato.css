@@ -1,0 +1,161 @@
+/* Contato e rodapé: um painel gelo só, do convite até o sobrenome gigante, com cantos arredondados e a 12 px da
+   tela (a metade de cima é a seção, a de baixo é o <footer>). */
+.contato { padding: 12px var(--borda) 0; }
+.contato .painel { padding-block: calc(120 * var(--su)) calc(96 * var(--su)); border-radius: var(--raio-painel) var(--raio-painel) 0 0; }
+.contato .conteudo, .rodape .conteudo { padding-inline: calc(var(--lado) - var(--borda)); }
+.contato__grade { display: grid; grid-template-columns: minmax(0, 1fr) calc(420 * var(--su)); column-gap: calc(64 * var(--su)); align-items: start; }
+.contato__titulo { font-size: calc(64 * var(--su)); line-height: 1.06; text-wrap: nowrap; }
+.contato__titulo span { display: block; }
+.contato__lado .apoio { max-width: 24em; }
+
+.pedido { margin-top: calc(24 * var(--su)); }
+.pedido__campo {
+  display: flex;
+  align-items: center;
+  gap: calc(10 * var(--su));
+  height: calc(60 * var(--su));
+  min-height: 56px;
+  padding: 0 calc(6 * var(--su)) 0 calc(20 * var(--su));
+  border-radius: 999px;
+  background: var(--gelo-2);
+  box-shadow: inset 0 0 0 1px var(--linha);
+  transition: box-shadow 0.3s var(--macio), background-color 0.3s var(--macio);
+}
+.pedido__campo > svg { flex: none; width: 22px; height: 22px; color: var(--tinta-3); transition: color 0.3s var(--macio); }
+.pedido__campo input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: var(--tinta);
+  font: inherit;
+  font-size: max(16px, calc(16 * var(--su)));
+  letter-spacing: -0.01em;
+}
+.pedido__campo input::placeholder { color: var(--tinta-3); opacity: 1; }
+.pedido__campo:focus-within { background: var(--papel); box-shadow: inset 0 0 0 2px var(--acento); }
+.pedido__campo:focus-within > svg, .pedido.is-preenchido .pedido__campo > svg { color: var(--acento); }
+.pedido.is-erro .pedido__campo { box-shadow: inset 0 0 0 2px #d6453d; animation: nega 0.4s var(--vai-volta); }
+.pedido.is-erro .pedido__campo > svg { color: #d6453d; }
+@keyframes nega { 25% { transform: translateX(-6px); } 50% { transform: translateX(5px); } 75% { transform: translateX(-3px); } }
+.pedido__enviar {
+  flex: none;
+  height: calc(48 * var(--su));
+  min-height: 44px;
+  padding-inline: calc(22 * var(--su));
+  border-radius: 999px;
+  background: var(--acento);
+  color: var(--sobre-acento);
+  font-size: max(14px, calc(15 * var(--su)));
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s var(--macio), transform 0.3s var(--macio), box-shadow 0.4s var(--macio);
+}
+.pedido__enviar:active { transform: scale(0.95); transition-duration: 0.1s; }
+.pedido__enviar:focus-visible { outline-offset: 3px; }
+@media (hover: hover) { .pedido__enviar:hover { background: var(--acento-forte); box-shadow: 0 10px 22px -10px color-mix(in srgb, var(--acento) 80%, transparent); } }
+.pedido__aviso { min-height: 1.5em; margin: calc(10 * var(--su)) calc(20 * var(--su)) 0; color: #c23b33; font-size: 15px; }
+/* enviado: o campo dá lugar à confirmação */
+.pedido__feito { display: grid; grid-template-columns: auto 1fr; gap: calc(6 * var(--su)) calc(14 * var(--su)); align-items: start; padding: calc(18 * var(--su)) calc(22 * var(--su)); border-radius: calc(22 * var(--su)); background: var(--acento-suave); color: var(--tinta); font-size: 17px; line-height: 1.5; }
+.pedido__feito[hidden] { display: none; }
+.pedido__feito svg { width: 26px; height: 26px; padding: 4px; border-radius: 50%; background: var(--acento); color: var(--sobre-acento); }
+.pedido__feito b { font-weight: 600; }
+.pedido__outro { grid-column: 2; justify-self: start; color: var(--acento-forte); font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; border-radius: 6px; }
+.pedido.is-enviado .pedido__campo, .pedido.is-enviado .pedido__aviso { display: none; }
+.js .pedido.is-enviado .pedido__feito { animation: assenta 0.7s var(--macio) both; }
+@keyframes assenta { from { opacity: 0; filter: blur(10px); transform: translateY(12px); } }
+
+.rodape { padding: 0 var(--borda) var(--borda); color: var(--tinta); }
+.rodape .painel { padding-bottom: calc(22 * var(--su)); border-radius: 0 0 var(--raio-painel) var(--raio-painel); }
+.rodape__grade { display: grid; grid-template-columns: minmax(0, 1fr) calc(420 * var(--su)); column-gap: calc(64 * var(--su)); align-items: start; }
+.rodape__colunas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.35fr); gap: calc(24 * var(--su)); max-width: calc(720 * var(--su)); }
+.rodape__rotulo { color: var(--tinta-3); font-size: 14px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+.rodape__colunas ul { display: grid; gap: calc(12 * var(--su)); margin-top: calc(18 * var(--su)); font-size: 17px; }
+.rodape__colunas li { color: var(--tinta-2); }
+.rodape__colunas a { color: var(--tinta); border-radius: 4px; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size 0.45s var(--macio), color 0.3s var(--macio); }
+.rodape__email {
+  display: inline-block;
+  margin-top: calc(14 * var(--su));
+  font-size: max(23.0px, calc(28 * var(--su)));
+  letter-spacing: -0.03em;
+  border-radius: 6px;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat;
+  transition: background-size 0.5s var(--macio), color 0.3s var(--macio);
+}
+.rodape__siga { margin-top: calc(26 * var(--su)); font-size: 16px; font-weight: 500; }
+.rodape__redes { display: flex; gap: calc(8 * var(--su)); margin-top: calc(12 * var(--su)); }
+.rodape__redes a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--papel);
+  box-shadow: 0 1px 3px rgb(12 17 18 / 0.08);
+  transition: background-color 0.3s var(--macio), color 0.3s var(--macio), transform 0.4s var(--macio);
+}
+.rodape__redes svg { width: 20px; height: 20px; }
+.rodape__redes a:active { transform: scale(0.92); }
+@media (hover: hover) {
+  .rodape__colunas a:hover, .rodape__email:hover { background-size: 100% 1px; color: var(--acento-forte); }
+  .rodape__email:hover { background-size: 100% 1.5px; }
+  .rodape__redes a:hover { background: var(--acento); color: var(--sobre-acento); transform: translateY(-3px); }
+  .rodape__redes a:hover svg path[fill^='var'] { fill: var(--acento); }
+  .rodape__pe a:hover { color: var(--tinta); }
+}
+
+/* o sobrenome de ponta a ponta do conteúdo */
+.rodape__nome {
+  margin: calc(34 * var(--su)) 0 0;
+  padding-inline: calc(var(--lado) - var(--borda));
+  /* a letra sai da largura do conteúdo: "Prudente" mede 3,84 vezes o tamanho dela, e 3,9 deixa uma folga */
+  font-family: var(--f-titulo);
+  font-size: calc((100vw - 2 * var(--lado)) / 4.3);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--tinta) 5%, var(--gelo));
+  -webkit-user-select: none;
+  user-select: none;
+}
+.rodape__nome span { display: inline-block; transition: color 0.8s var(--macio); }
+.rodape__dente { color: color-mix(in srgb, var(--tinta) 10%, var(--gelo)); }
+@media (hover: hover) { .rodape__nome:hover .rodape__dente { color: var(--ouro); } }
+
+.rodape__pe { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin-top: calc(6 * var(--su)); color: var(--tinta-3); font-size: 14px; }
+.rodape__pe a { justify-self: end; padding: 6px 0; border-radius: 4px; transition: color 0.3s var(--macio); }
+
+@media (max-width: 760px) {
+  .contato .painel { padding-block: 68px 56px; }
+  .contato__grade { grid-template-columns: minmax(0, 1fr); row-gap: 22px; }
+  .contato__titulo { font-size: clamp(26px, 8.5vw, 36px); }
+  .contato__lado .apoio { max-width: none; }
+  .pedido { margin-top: 18px; }
+  .pedido__campo { height: 58px; padding: 0 6px 0 16px; gap: 8px; }
+  .pedido__campo > svg { width: 20px; height: 20px; }
+  .pedido__enviar { height: 46px; padding-inline: 16px; font-size: 14.5px; }
+  .pedido__aviso { margin: 8px 16px 0; font-size: 13.5px; }
+  .pedido__feito { padding: 16px 18px; border-radius: 20px; font-size: 15.5px; gap: 6px 12px; }
+  .pedido__outro { font-size: 14px; padding-block: 6px; }
+  .rodape .painel { padding-bottom: 18px; }
+  .rodape__grade { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+  .rodape__colunas { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px 16px; max-width: none; }
+  .rodape__colunas > div:last-child { grid-column: 1 / -1; }
+  .rodape__rotulo { font-size: 12.5px; }
+  .rodape__colunas ul { gap: 0; margin-top: 8px; font-size: 16px; }
+  .rodape__colunas a { display: inline-block; padding-block: 10px; }
+  .rodape__colunas > div:last-child ul { gap: 10px; margin-top: 14px; }
+  .rodape__email { margin-top: 4px; padding-block: 8px; font-size: 23px; }
+  .rodape__siga { margin-top: 22px; font-size: 15px; }
+  .rodape__redes { gap: 10px; margin-top: 12px; }
+  .rodape__nome { margin-top: 38px; }
+  .rodape__pe { grid-template-columns: 1fr auto; row-gap: 2px; margin-top: 10px; font-size: 12.5px; }
+  .rodape__pe p:first-child { grid-column: 1 / -1; }
+  .rodape__pe a { padding: 12px 0; }
+}
+
+/* e-mail longo da secretaria: cabe na coluna sem vazar */
+.rodape__email { font-size: clamp(16px, calc(22 * var(--su)), 22px); overflow-wrap: anywhere; }

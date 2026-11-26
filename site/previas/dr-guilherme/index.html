@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dr. Guilherme Pansardi · Cirurgião Plástico em Nova Iguaçu</title>
+  <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Dr. Guilherme Pansardi De Andrade, cirurgião plástico em Nova Iguaçu (RJ). CRM/RJ 52886840 · RQE 27101. Prótese de silicone, abdominoplastia e contorno corporal, com primeira avaliação de mais de 1h30.">
+  <meta name="theme-color" content="#f6f2eb">
+  <link rel="icon" href="marca.svg" type="image/svg+xml">
+  <!-- Primeira pintura: a página já nasce na cor certa e com o tema escolhido (?tema=bronze|claro|ciano|lavanda|grafite).
+       A folha do site vem em <link> (segura a pintura até chegar), nunca pelo JS. O que entra com animação só se
+       esconde com o JS no ar (classe .js); se ele não subir em 4 s, a trava cai e a página aparece inteira. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      var tema = new URLSearchParams(location.search).get('tema');
+      if (/^(bronze|claro|ciano|lavanda|grafite)$/.test(tema || '')) d.dataset.tema = tema;
+      d.classList.add('js');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('reduzido');
+      setTimeout(function () { if (!window.__siteVivo) d.classList.remove('js'); }, 4000);
+    })();
+  </script>
+  <style>
+    html { background: #f6f2eb; color: #17140f; }
+    body { margin: 0; }
+  </style>
+  <link rel="stylesheet" href="src/styles/site.css">
+</head>
+<body>
+  <a class="pular" href="#sobre">Pular para o conteúdo</a>
+
+  <!-- a barra que volta quando a pessoa rola para cima, depois do hero: marca, seções e o botão de agendar -->
+<div class="barra" data-barra>
+  <a class="barra__marca" href="#inicio" aria-label="Dr. Guilherme Pansardi, voltar ao início">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#simbolo"/></svg>
+    <span>Dr. Guilherme Pansardi</span>
+  </a>
+  <nav class="barra__menu" aria-label="Seções do site, barra fixa">
+    <a href="#sobre">Sobre</a>
+    <a href="#procedimentos">Procedimentos</a>
+    <a href="#consulta">Consulta</a>
+    <a href="#casos">Casos</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a href="#local">Onde atendo</a>
+  </nav>
+  <a class="botao botao--acento botao--simples" href="#contato">Agendar</a>
+</div>
+
+
+  <main>
+    <section class="hero" id="inicio" aria-label="Apresentação">
+  <div class="hero__card">
+    <!-- as fotos dos tratamentos: a primeira já vem no HTML; as outras o motion/hero.js baixa depois da carga -->
+    <div class="hero__fotos" aria-hidden="true">
+      <picture>
+        <source media="(max-width: 760px)" srcset="img/hero-avaliacao-m.webp">
+        <img class="hero__foto is-ativa" src="img/hero-avaliacao.webp" width="2400" height="1350" alt="" fetchpriority="high" decoding="async">
+      </picture>
+    </div>
+    <div class="hero__veu" aria-hidden="true"></div>
+
+    <header class="topo">
+      <a class="marca" href="#inicio" aria-label="Dr. Guilherme Pansardi, início" data-foco style="--i: 1">
+        <svg class="marca__simbolo" viewBox="0 0 32 32" aria-hidden="true"><use href="#simbolo"/></svg>
+        <span class="marca__nome">Dr. Guilherme Pansardi</span>
+      </a>
+      <a class="botao botao--claro botao--simples" href="#contato" data-foco style="--i: 1.8">Falar comigo</a>
+    </header>
+
+    <div class="hero__texto">
+      <h1 class="hero__titulo">
+        <span data-foco style="--i: 3">Cirurgia plástica</span>
+        <span data-foco style="--i: 4">do começo ao fim</span>
+      </h1>
+      <p class="hero__apoio" data-foco style="--i: 5.2">Sou o Guilherme, cirurgião plástico. Avalio, planejo e opero cada paciente, e acompanho até o último retorno. Sem pressa e sem tabela pronta.</p>
+      <a class="botao botao--claro" href="#contato" data-foco style="--i: 6.2">
+        <span class="botao__texto">Agendar avaliação</span>
+        <span class="botao__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta"/></svg><svg viewBox="0 0 24 24"><use href="#seta"/></svg></span>
+      </a>
+    </div>
+
+    <div class="tratamentos" role="group" aria-label="Tratamentos: escolha um para ver a foto">
+      <!-- a frase do tratamento da vez: troca junto com a foto -->
+      <p class="tratamentos__frase" data-foco style="--i: 7.4"><span data-troca="texto">Mais de 1h30 de conversa, exame e planejamento.</span></p>
+      <div class="tratamentos__linha">
+        <button type="button" class="chip is-ativo" data-foco style="--i: 8.0" aria-pressed="true" data-foto="hero-avaliacao" data-texto="Mais de 1h30 de conversa, exame e planejamento.">Avaliação</button>
+        <button type="button" class="chip" data-foco style="--i: 8.5" aria-pressed="false" data-foto="hero-protese" data-texto="Volume e perfil do implante escolhidos com você.">Prótese de silicone</button>
+        <button type="button" class="chip" data-foco style="--i: 9.0" aria-pressed="false" data-foto="hero-consultorio" data-texto="Abdominoplastia, lipo e contorno, quando indicados.">Abdome e contorno</button>
+      </div>
+    </div>
+
+    <div class="hero__pe" data-foco style="--i: 9">
+      <div class="hero__linha"><span class="hero__progresso"></span></div>
+      <p class="hero__lema">Cirurgia plástica com nome e sobrenome</p>
+      <div class="hero__passo" aria-label="Fotos dos tratamentos">
+        <button class="hero__troca" type="button" data-passo="-1">Anterior</button>
+        <span class="hero__conta"><b data-troca="conta">01</b> / 03</span>
+        <button class="hero__troca" type="button" data-passo="1">Próximo</button>
+      </div>
+      <p class="hero__cro">CRM/RJ 52886840 · RQE 27101</p>
+    </div>
+  </div>
+
+  <!-- desenhos usados pela página inteira -->
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <symbol id="seta" viewBox="0 0 24 24"><path d="M5 12h13.5M13 6.5l5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="seta-cima" viewBox="0 0 24 24"><path d="M7.5 16.5l9-9M9 7.5h7.5V15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="seta-volta" viewBox="0 0 24 24"><path d="M5 6.500v5a3 3 0 0 0 3 3h10.500M14.500 10.500l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <!-- o símbolo da marca: monograma GP num círculo -->
+    <symbol id="simbolo" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="16" y="20.6" text-anchor="middle" font-family="Schibsted Grotesk, sans-serif" font-size="12.5" font-weight="600" letter-spacing="-0.4" fill="currentColor">GP</text></symbol>
+  </svg>
+</section>
+
+
+    <section class="sobre" id="sobre" aria-labelledby="sobre-frase">
+  <div class="conteudo sobre__grade">
+    <div class="sobre__lado">
+      <p class="etiqueta" data-foco>Sobre mim</p>
+      <div class="sobre__retratos">
+        <img src="img/sobre-retrato.webp" width="420" height="494" alt="Dr. Guilherme Pansardi de terno, de braços cruzados" loading="lazy" decoding="async" data-foco style="--i: 2">
+        <img src="img/sobre-maos.webp" width="420" height="494" alt="Mão do Dr. Guilherme segurando um implante de silicone" loading="lazy" decoding="async" data-foco style="--i: 3">
+      </div>
+    </div>
+
+    <div class="sobre__fala">
+      <h2 class="sobre__frase" id="sobre-frase" data-varredura data-foco style="--i: 1">Sou cirurgião plástico formado pela UFRJ e acompanho cada paciente da primeira consulta ao último retorno. Aqui não existe tabela pronta: existe o seu plano.</h2>
+      <p class="sobre__assina" data-assina aria-label="Assinado: Guilherme Pansardi"><span aria-hidden="true">Guilherme Pansardi</span></p>
+    </div>
+
+    <div class="sobre__numeros">
+      <p class="sobre__legenda" data-foco>Formação e rotina, em números</p>
+      <dl class="numeros">
+        <div data-foco style="--i: 1"><dt>1h30+</dt><dd>de primeira avaliação</dd></div>
+        <div data-foco style="--i: 2"><dt>2017</dt><dd>residência em Cirurgia Plástica, UFRJ</dd></div>
+        <div data-foco style="--i: 3"><dt>IMC 28</dt><dd>limite recomendado para operar com segurança</dd></div>
+      </dl>
+    </div>
+
+    <img class="sobre__foto" src="img/sobre-bancada.webp" width="760" height="554" alt="Dr. Guilherme à mesa do consultório em Nova Iguaçu" loading="lazy" decoding="async" data-foco style="--i: 2">
+  </div>
+</section>
+
+
+    <section class="formacao" id="formacao" aria-labelledby="formacao-titulo">
+  <div class="conteudo formacao__grade">
+    <div class="formacao__topo">
+      <p class="etiqueta" data-foco>Formação</p>
+      <h2 class="titulo" id="formacao-titulo" data-foco style="--i: 1">Nove anos de formação até a Cirurgia Plástica</h2>
+    </div>
+    <ol class="formacao__linha">
+      <li data-foco style="--i: 1"><span class="formacao__ano">2008</span><b>Medicina</b><span>Pontifícia Universidade Católica do Paraná</span></li>
+      <li data-foco style="--i: 2"><span class="formacao__ano">2012</span><b>Residência em Cirurgia Geral</b><span>Hospital Federal de Ipanema</span></li>
+      <li data-foco style="--i: 3"><span class="formacao__ano">2017</span><b>Residência em Cirurgia Plástica</b><span>Hospital Universitário Clementino Fraga Filho, UFRJ</span></li>
+      <li data-foco style="--i: 4" class="is-hoje"><span class="formacao__ano">Hoje</span><b>Especialista em Cirurgia Plástica</b><span>CRM/RJ 52886840 · RQE 27101</span></li>
+    </ol>
+  </div>
+</section>
+
+
+    <section class="procs" id="procedimentos" aria-labelledby="procs-titulo">
+  <div class="conteudo">
+    <div class="procs__topo">
+      <p class="etiqueta" data-foco>Procedimentos</p>
+      <h2 class="titulo" id="procs-titulo" data-foco style="--i: 1">O que eu opero, e como eu decido a técnica</h2>
+    </div>
+    <ul class="procs__grade">
+      <li class="proc" data-foco><span class="proc__num">01</span><span class="proc__tag">Mama</span><h3>Prótese de silicone</h3><p>Aumento com implante. Volume, perfil e incisão definidos a partir das suas medidas.</p></li>
+      <li class="proc" data-foco style="--i: 1"><span class="proc__num">02</span><span class="proc__tag">Mama</span><h3>Mastopexia</h3><p>Reposiciona a mama e trata a flacidez. Pode ser associada à prótese quando falta volume.</p></li>
+      <li class="proc" data-foco style="--i: 2"><span class="proc__num">03</span><span class="proc__tag">Mama</span><h3>Mamoplastia redutora</h3><p>Reduz o volume da mama para aliviar o peso nas costas e devolver a proporção.</p></li>
+      <li class="proc" data-foco style="--i: 3"><span class="proc__num">04</span><span class="proc__tag">Abdome</span><h3>Abdominoplastia</h3><p>Retira o excesso de pele e reaproxima a musculatura afastada depois da gestação ou do emagrecimento.</p></li>
+      <li class="proc" data-foco style="--i: 4"><span class="proc__num">05</span><span class="proc__tag">Abdome</span><h3>Lipoabdominoplastia</h3><p>Abdominoplastia associada à lipo, para tratar pele e gordura no mesmo tempo cirúrgico.</p></li>
+      <li class="proc" data-foco style="--i: 5"><span class="proc__num">06</span><span class="proc__tag">Corpo</span><h3>Contorno corporal</h3><p>Lipoaspiração para gordura localizada e, quando indicado, Argoplasma para a flacidez da pele.</p></li>
+    </ul>
+    <p class="procs__nota" data-foco>A indicação é sempre individual: a técnica sai da avaliação, não do nome do procedimento.</p>
+  </div>
+</section>
+
+
+    <section class="consulta" id="consulta" aria-labelledby="consulta-titulo">
+  <div class="conteudo consulta__grade">
+    <div class="consulta__texto">
+      <p class="etiqueta" data-foco>Primeira consulta</p>
+      <h2 class="titulo" id="consulta-titulo" data-foco style="--i: 1">Primeiro eu escuto, depois eu opero</h2>
+      <p class="apoio" data-foco style="--i: 2">A primeira avaliação dura mais de 1h30: conversa, exame e planejamento. Você sai dela sabendo a técnica indicada, as etapas e o investimento.</p>
+    </div>
+
+    <div class="consulta__lia">
+      <!-- o card da conversa por vídeo: uma chamada desenhada, só ilustração -->
+      <figure class="chamada" data-foco style="--i: 1">
+        <img class="chamada__foto" src="img/consulta-video.webp" width="640" height="760" alt="Dr. Guilherme Pansardi" loading="lazy" decoding="async">
+        <!-- o quadro de quem chama fica com a câmera desligada: publicidade de dentista não mostra paciente -->
+        
+      </figure>
+      <div class="consulta__ficha">
+        <div data-foco style="--i: 2">
+          <h3 class="consulta__nome">Dr. Guilherme Pansardi</h3>
+          <p class="consulta__cargo">Médico · Cirurgião Plástico</p>
+          <p class="consulta__cargo">CRM/RJ 52886840 · RQE 27101</p>
+        </div>
+        <div data-foco style="--i: 3">
+          <p class="consulta__convite">Prefere tirar dúvidas antes de vir? Fale com a minha secretária pelo WhatsApp: ela explica como é a consulta e o que trazer.</p>
+          <a class="botao botao--acento" href="https://wa.me/5521995121607" target="_blank" rel="noopener">
+            <span class="botao__texto">Falar no WhatsApp</span>
+            <span class="botao__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta"/></svg><svg viewBox="0 0 24 24"><use href="#seta"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <figure class="sala" data-foco style="--i: 2">
+      <img class="sala__foto" src="img/consulta-sala.webp" width="1040" height="1330" alt="Dr. Guilherme no consultório, à mesa" loading="lazy" decoding="async">
+      <figcaption class="agenda" data-barras="100">
+        <dl class="agenda__dados">
+          <div><dt>IMC recomendado para operar</dt><dd><b>&lt;28</b></dd></div>
+          <div><dt>Duração da primeira avaliação</dt><dd><b>1h30</b> ou mais</dd></div>
+        </dl>
+        <p class="agenda__linha"><span>Planejamento</span><span><b class="agenda__pct">100</b>% individual</span></p>
+        <div class="agenda__barras" aria-hidden="true"></div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+    <section class="jornada" id="jornada" aria-labelledby="jornada-titulo">
+  <div class="conteudo">
+    <div class="jornada__topo">
+      <p class="etiqueta" data-foco>A jornada</p>
+      <h2 class="jornada__frase" id="jornada-titulo" data-varredura data-foco style="--i: 1">Do primeiro contato à alta, você sabe sempre qual é o próximo passo e com quem falar.</h2>
+    </div>
+    <ol class="jornada__passos">
+      <li data-foco><span class="jornada__n">01</span><h3>Contato</h3><p>A secretária tira as primeiras dúvidas pelo WhatsApp e marca a sua avaliação.</p></li>
+      <li data-foco style="--i: 1"><span class="jornada__n">02</span><h3>Avaliação</h3><p>Mais de 1h30 comigo: conversa, exame, técnica indicada, etapas e investimento.</p></li>
+      <li data-foco style="--i: 2"><span class="jornada__n">03</span><h3>Preparo</h3><p>Exames pré-operatórios e os critérios de segurança, como o IMC abaixo de 28.</p></li>
+      <li data-foco style="--i: 3"><span class="jornada__n">04</span><h3>Cirurgia e pós</h3><p>A cirurgia e os retornos programados, comigo, até a alta.</p></li>
+    </ol>
+  </div>
+</section>
+
+
+    <section class="recup" id="recuperacao" aria-labelledby="recup-titulo">
+  <div class="conteudo">
+    <div class="recup__topo">
+      <p class="etiqueta" data-foco>Recuperação</p>
+      <div>
+        <h2 class="titulo" id="recup-titulo" data-foco style="--i: 1">Como costuma ser o pós-operatório</h2>
+        <div class="recup__abas" role="tablist" aria-label="Escolha o procedimento" data-foco style="--i: 2">
+          <button type="button" role="tab" class="recup__aba is-ativa" aria-selected="true" aria-controls="recup-protese" id="aba-protese">Prótese de silicone</button>
+          <button type="button" role="tab" class="recup__aba" aria-selected="false" aria-controls="recup-abdome" id="aba-abdome" tabindex="-1">Abdominoplastia</button>
+          <button type="button" role="tab" class="recup__aba" aria-selected="false" aria-controls="recup-contorno" id="aba-contorno" tabindex="-1">Contorno corporal</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="recup__painel is-ativo" id="recup-protese" role="tabpanel" aria-labelledby="aba-protese">
+      <ol class="recup__fases" data-foco style="--i: 3">
+        <li><span>1ª semana</span><b>Repouso relativo</b><p>Sutiã cirúrgico, braços poupados e os primeiros retornos.</p></li>
+        <li><span>~15 a 20 dias</span><b>Retomada leve</b><p>Volta gradual ao trabalho e às tarefas do dia a dia.</p></li>
+        <li><span>~30 a 45 dias</span><b>Atividade física</b><p>Exercícios liberados aos poucos, conforme a orientação.</p></li>
+        <li><span>3 a 6 meses</span><b>Resultado</b><p>O implante se acomoda e a forma final se define.</p></li>
+      </ol>
+    </div>
+    <div class="recup__painel" id="recup-abdome" role="tabpanel" aria-labelledby="aba-abdome" hidden>
+      <ol class="recup__fases">
+        <li><span>1ª semana</span><b>Repouso</b><p>Cinta compressiva, caminhadas curtas e os primeiros retornos.</p></li>
+        <li><span>~20 a 25 dias</span><b>Retomada leve</b><p>Retorno gradual a trabalhos leves, ainda com a cinta.</p></li>
+        <li><span>~45 a 60 dias</span><b>Atividade física</b><p>Liberação progressiva de exercícios.</p></li>
+        <li><span>6 a 12 meses</span><b>Resultado</b><p>A cicatriz amadurece e o contorno se estabiliza.</p></li>
+      </ol>
+    </div>
+    <div class="recup__painel" id="recup-contorno" role="tabpanel" aria-labelledby="aba-contorno" hidden>
+      <ol class="recup__fases">
+        <li><span>1ª semana</span><b>Primeiros dias</b><p>Malha compressiva e as drenagens indicadas.</p></li>
+        <li><span>~7 a 15 dias</span><b>Retomada leve</b><p>Retorno ao trabalho, conforme a extensão da cirurgia.</p></li>
+        <li><span>~30 a 40 dias</span><b>Atividade física</b><p>Exercícios liberados aos poucos.</p></li>
+        <li><span>3 a 6 meses</span><b>Resultado</b><p>O inchaço regride e o contorno final aparece.</p></li>
+      </ol>
+    </div>
+    <p class="recup__nota" data-foco>Prazos de referência. O cronograma de cada paciente é definido por mim na avaliação.</p>
+  </div>
+</section>
+
+
+    <section class="motivos" id="motivos" aria-labelledby="motivos-titulo">
+  <div class="painel">
+  <div class="conteudo motivos__topo">
+    <h2 class="titulo" id="motivos-titulo" data-foco>Por que operar comigo?</h2>
+    <div class="setas" data-foco style="--i: 1">
+      <button type="button" data-trilho="-1" aria-label="Cartões anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#seta"/></svg></button>
+      <button type="button" data-trilho="1" aria-label="Próximos cartões"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#seta"/></svg></button>
+    </div>
+  </div>
+
+  <!-- fila de cartões que rola de lado: com as setas, arrastando ou com o próprio trackpad -->
+  <ul class="trilho" data-trilho-fila tabindex="0" aria-label="Motivos para operar com o Dr. Guilherme">
+    <li class="cartao cartao--foto-titulo" data-foco>
+      <h3>Implante escolhido com você, não por catálogo</h3>
+      <img src="img/motivo-implante.webp" width="560" height="460" alt="Implante de silicone na mão do Dr. Guilherme" loading="lazy" decoding="async" draggable="false">
+    </li>
+
+    <li class="cartao cartao--cor" data-foco style="--i: 1">
+      <p class="cartao__gente">
+        <span class="cartao__rostos" aria-hidden="true">
+          <img src="img/gp-rosto.webp" width="88" height="88" alt="" loading="lazy" decoding="async" draggable="false">
+        </span>
+        Da avaliação ao último retorno
+      </p>
+      <div>
+        <p class="cartao__selo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.500h7l4 4V19a1.500 1.500 0 0 1-1.500 1.500h-9A1.500 1.500 0 0 1 6 19V5a1.500 1.500 0 0 1 1-1.500zM14 3.500V8h4M9 12.500h6M9 16h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Planejamento individual</p>
+        <p class="cartao__frase" data-varredura>Antes de operar você sabe a técnica, as etapas da recuperação e o investimento.</p>
+      </div>
+    </li>
+
+    <li class="cartao cartao--foto" data-foco style="--i: 2">
+      <img src="img/motivo-retrato.webp" width="1000" height="800" alt="Retrato do Dr. Guilherme Pansardi" loading="lazy" decoding="async" draggable="false">
+    </li>
+
+    <li class="cartao cartao--numero" data-foco style="--i: 3">
+      <p class="cartao__numero">3</p>
+      <p class="cartao__rotulo">etapas na primeira consulta: escuta, exame e plano</p>
+      <div class="colunas" data-colunas aria-hidden="true">
+        <span style="--h: 0.6"><i></i>Escuta</span>
+        <span style="--h: 0.78"><i></i>Exame</span>
+        <span class="is-destaque" style="--h: 1"><i></i>Plano</span>
+      </div>
+    </li>
+
+    <li class="cartao cartao--foto-titulo" data-foco style="--i: 4">
+      <h3>Segurança antes de tudo: IMC abaixo de 28</h3>
+      <img src="img/motivo-consultorio.webp" width="560" height="460" alt="Consultório do Dr. Guilherme em Nova Iguaçu" loading="lazy" decoding="async" draggable="false">
+    </li>
+  </ul>
+  </div>
+</section>
+
+
+    <section class="chamada-meio" aria-labelledby="chamada-titulo">
+  <div class="chamada-meio__card">
+    <div class="chamada-meio__texto">
+      <p class="chamada-meio__rotulo" data-foco>Avaliação com hora marcada · Nova Iguaçu</p>
+      <h2 class="chamada-meio__titulo" id="chamada-titulo" data-foco style="--i: 1">A primeira conversa já sai com um plano.</h2>
+    </div>
+    <div class="chamada-meio__acoes" data-foco style="--i: 2">
+      <a class="botao botao--claro" href="#contato">
+        <span class="botao__texto">Agendar avaliação</span>
+        <span class="botao__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta"/></svg><svg viewBox="0 0 24 24"><use href="#seta"/></svg></span>
+      </a>
+      <a class="chamada-meio__link" href="https://wa.me/5521995121607" target="_blank" rel="noopener">ou fale no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+
+    <section class="conteudo-sec" id="conteudo" aria-labelledby="conteudo-titulo">
+  <div class="conteudo conteudo-sec__topo">
+    <p class="etiqueta" data-foco>Conteúdo</p>
+    <h2 class="titulo" id="conteudo-titulo" data-foco style="--i: 1">As dúvidas que mais ouço no consultório</h2>
+  </div>
+
+  <ul class="conteudo textos">
+    <li class="texto" data-foco>
+      <span class="texto__foto">
+        <img src="img/texto-preco.webp" width="760" height="570" alt="Dr. Guilherme à mesa do consultório" loading="lazy" decoding="async">
+        <span class="texto__tema">Investimento</span>
+      </span>
+      <p class="texto__meta">
+        <img src="img/gp-rosto.webp" width="88" height="88" alt="" loading="lazy" decoding="async">
+        <span><b>Dr. Guilherme Pansardi</b><small>3 min de leitura</small></span>
+        <time datetime="2026-11-10">10 nov 2026</time>
+      </p>
+      <h3><button type="button" class="texto__abre" data-folha="preco" aria-haspopup="dialog">Por que eu não trabalho com tabela de preços</button></h3>
+      <p class="texto__ler" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta-volta"/></svg>Ler o texto</p>
+    </li>
+
+    <li class="texto" data-foco style="--i: 1">
+      <span class="texto__foto">
+        <img src="img/texto-imc.webp" width="760" height="570" alt="Retrato do Dr. Guilherme Pansardi" loading="lazy" decoding="async">
+        <span class="texto__tema">Segurança</span>
+      </span>
+      <p class="texto__meta">
+        <img src="img/gp-rosto.webp" width="88" height="88" alt="" loading="lazy" decoding="async">
+        <span><b>Dr. Guilherme Pansardi</b><small>3 min de leitura</small></span>
+        <time datetime="2026-10-27">27 out 2026</time>
+      </p>
+      <h3><button type="button" class="texto__abre" data-folha="imc" aria-haspopup="dialog">O que é IMC e por que ele importa para operar</button></h3>
+      <p class="texto__ler" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta-volta"/></svg>Ler o texto</p>
+    </li>
+
+    <li class="texto" data-foco style="--i: 2">
+      <span class="texto__foto">
+        <img src="img/texto-protese.webp" width="760" height="570" alt="Implante de silicone na mão do Dr. Guilherme" loading="lazy" decoding="async">
+        <span class="texto__tema">Mama</span>
+      </span>
+      <p class="texto__meta">
+        <img src="img/gp-rosto.webp" width="88" height="88" alt="" loading="lazy" decoding="async">
+        <span><b>Dr. Guilherme Pansardi</b><small>4 min de leitura</small></span>
+        <time datetime="2026-10-08">8 out 2026</time>
+      </p>
+      <h3><button type="button" class="texto__abre" data-folha="protese" aria-haspopup="dialog">Como escolher o tamanho da prótese de silicone</button></h3>
+      <p class="texto__ler" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta-volta"/></svg>Ler o texto</p>
+    </li>
+
+  </ul>
+
+  <p class="conteudo-sec__pe" data-foco>
+    <a class="botao botao--acento" href="#contato">
+      <span class="botao__texto">Agendar avaliação</span>
+      <span class="botao__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta"/></svg><svg viewBox="0 0 24 24"><use href="#seta"/></svg></span>
+    </a>
+  </p>
+
+  <!-- a folha de leitura: o texto abre aqui, por cima da página (motion/folha.js). Os três textos ficam guardados
+       logo abaixo, escondidos, e entram na folha quando o cartão é aberto. -->
+  <dialog class="folha" id="folha">
+    <div class="folha__papel" data-lenis-prevent>
+      <button class="folha__fechar" type="button" aria-label="Fechar o texto" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.500 6.500l11 11M17.500 6.500l-11 11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+      <article class="folha__texto" data-folha-texto></article>
+    </div>
+  </dialog>
+
+  <div hidden data-texto="preco">
+    <p class="etiqueta">Investimento</p>
+    <h2 id="folha-titulo-preco">Por que eu não trabalho com tabela de preços</h2>
+    <p class="folha__meta"><img src="img/gp-rosto.webp" width="88" height="88" alt=""><span>Dr. Guilherme Pansardi · 10 nov 2026 · 3 min de leitura</span></p>
+    <img class="folha__foto" src="img/texto-preco.webp" width="760" height="570" alt="Dr. Guilherme à mesa do consultório">
+    <p>Quase toda conversa começa com a mesma pergunta: quanto custa. É uma pergunta justa, e a resposta honesta é que eu só sei depois de examinar.</p>
+    <p>Duas pessoas que pedem a mesma cirurgia raramente precisam da mesma técnica. Muda a quantidade de pele, a musculatura, a gordura, o tipo de implante, o tempo de cirurgia e o hospital.</p>
+    <p>Um preço de tabela teria que ignorar tudo isso. Por isso a primeira avaliação dura mais de 1h30: é nela que eu monto o seu planejamento.</p>
+    <p>Você sai da consulta sabendo a técnica indicada, as etapas da recuperação e o investimento, com as condições de pagamento. Aí, sim, com números que valem para o seu caso.</p>
+    <a class="botao botao--acento" href="#contato"><span class="botao__texto">Agendar avaliação</span><span class="botao__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta"/></svg><svg viewBox="0 0 24 24"><use href="#seta"/></svg></span></a>
+  </div>
+
+  <div hidden data-texto="imc">
+    <p class="etiqueta">Segurança</p>
+    <h2 id="folha-titulo-imc">O que é IMC e por que ele importa para operar</h2>
+    <p class="folha__meta"><img src="img/gp-rosto.webp" width="88" height="88" alt=""><span>Dr. Guilherme Pansardi · 27 out 2026 · 3 min de leitura</span></p>
+    <img class="folha__foto" src="img/texto-imc.webp" width="760" height="570" alt="Retrato do Dr. Guilherme Pansardi">
+    <p>IMC é o índice de massa corporal: o peso dividido pela altura ao quadrado. Não é uma medida de beleza, é um dos indicadores de risco que eu olho antes de qualquer cirurgia.</p>
+    <p>Para operar com mais segurança, eu recomendo IMC abaixo de 28. Acima disso, cresce o risco de complicações na cirurgia e na cicatrização, e o resultado tende a ser menos previsível.</p>
+    <p>Isso não quer dizer que a cirurgia está descartada. Muitas vezes o melhor plano começa com uma etapa de preparo, e a cirurgia vem quando o corpo estiver pronto.</p>
+    <p>O IMC é só um dos critérios. Na avaliação eu vejo também os exames, a sua saúde geral e o seu momento de vida, e conversamos sobre tudo isso com calma.</p>
+    <a class="botao botao--acento" href="#contato"><span class="botao__texto">Agendar avaliação</span><span class="botao__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta"/></svg><svg viewBox="0 0 24 24"><use href="#seta"/></svg></span></a>
+  </div>
+
+  <div hidden data-texto="protese">
+    <p class="etiqueta">Mama</p>
+    <h2 id="folha-titulo-protese">Como escolher o tamanho da prótese de silicone</h2>
+    <p class="folha__meta"><img src="img/gp-rosto.webp" width="88" height="88" alt=""><span>Dr. Guilherme Pansardi · 8 out 2026 · 4 min de leitura</span></p>
+    <img class="folha__foto" src="img/texto-protese.webp" width="760" height="570" alt="Implante de silicone na mão do Dr. Guilherme">
+    <p>O tamanho da prótese não sai de uma foto nem de um número em mililitros escolhido antes da consulta. Ele sai das suas medidas.</p>
+    <p>Na avaliação eu meço a largura da mama, a espessura da pele e do tecido e a proporção com ombros e quadril. Isso define até onde dá para ir com um resultado natural.</p>
+    <p>Dentro dessa faixa, a escolha é feita com você: o volume, o perfil do implante e o local da incisão. A gente conversa sobre o que você quer e sobre o que o seu corpo comporta.</p>
+    <p>Quando há flacidez, a prótese pode vir junto com a mastopexia, que reposiciona a mama. Tudo isso entra no planejamento antes de marcar a cirurgia.</p>
+    <a class="botao botao--acento" href="#contato"><span class="botao__texto">Agendar avaliação</span><span class="botao__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta"/></svg><svg viewBox="0 0 24 24"><use href="#seta"/></svg></span></a>
+  </div>
+</section>
+
+
+    <section class="faq" id="duvidas" aria-labelledby="faq-titulo">
+  <div class="conteudo faq__grade">
+    <div class="faq__topo">
+      <p class="etiqueta" data-foco>Dúvidas frequentes</p>
+      <h2 class="titulo" id="faq-titulo" data-foco style="--i: 1">O que me perguntam antes da consulta</h2>
+      <a class="botao botao--acento" href="https://wa.me/5521995121607" target="_blank" rel="noopener" data-foco style="--i: 2">
+        <span class="botao__texto">Outra dúvida? WhatsApp</span>
+        <span class="botao__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta"/></svg><svg viewBox="0 0 24 24"><use href="#seta"/></svg></span>
+      </a>
+    </div>
+    <div class="faq__lista">
+      <details data-foco open><summary>Qual é o valor da cirurgia?</summary><p>Eu não trabalho com tabela de preços, porque cada planejamento é individual. O investimento é apresentado depois da avaliação, junto com as condições de pagamento.</p></details>
+      <details data-foco style="--i: 1"><summary>Como é a primeira consulta?</summary><p>Dura mais de 1h30. Conversamos sobre o seu objetivo, faço o exame físico, explico as técnicas possíveis e monto o seu planejamento.</p></details>
+      <details data-foco style="--i: 2"><summary>Existe algum pré-requisito para operar?</summary><p>Para mais segurança, recomendo IMC abaixo de 28. Esse e os outros critérios, como exames e saúde geral, são avaliados na consulta.</p></details>
+      <details data-foco style="--i: 3"><summary>Quanto tempo leva a recuperação?</summary><p>Depende do procedimento e de cada paciente. Na avaliação eu explico as fases da recuperação do seu caso: repouso, volta ao trabalho e às atividades físicas.</p></details>
+      <details data-foco style="--i: 4"><summary>Dá para fazer mais de um procedimento na mesma cirurgia?</summary><p>Em alguns casos, sim, como na lipoabdominoplastia ou na prótese com mastopexia. A decisão leva em conta a segurança e o tempo de cirurgia.</p></details>
+      <details data-foco style="--i: 5"><summary>Onde a cirurgia é realizada?</summary><p>Em [hospital], com centro cirúrgico completo e equipe de anestesiologia.</p></details>
+    </div>
+  </div>
+</section>
+
+
+    <section class="casos" id="casos" aria-labelledby="casos-titulo">
+  <div class="casos__painel">
+    <div class="conteudo">
+      <div class="casos__topo">
+        <div>
+          <p class="etiqueta etiqueta--escura" data-foco>Casos</p>
+          <h2 class="casos__titulo" id="casos-titulo" data-foco style="--i: 1">Casos reais, com indicação, evolução e o que pode acontecer</h2>
+        </div>
+        <div class="casos__abas" role="tablist" aria-label="Escolha o procedimento" data-foco style="--i: 2">
+          <button type="button" role="tab" class="casos__aba is-ativa" aria-selected="true" aria-controls="caso-protese" id="caba-protese">Prótese de silicone</button>
+          <button type="button" role="tab" class="casos__aba" aria-selected="false" aria-controls="caso-abdome" id="caba-abdome" tabindex="-1">Abdominoplastia</button>
+          <button type="button" role="tab" class="casos__aba" aria-selected="false" aria-controls="caso-contorno" id="caba-contorno" tabindex="-1">Contorno corporal</button>
+        </div>
+      </div>
+
+      <!-- um caso por aba. Trocar os dois .comparar__foto pelas fotos reais (<img>), com autorização por escrito e sem
+           identificar a paciente; preencher a ficha. Resolução CFM nº 2.336/2023. -->
+      <div class="caso is-ativo" id="caso-protese" role="tabpanel" aria-labelledby="caba-protese" data-foco style="--i: 3">
+        <div class="comparar" style="--pos: 50%" data-comparar>
+          <div class="comparar__foto comparar__foto--antes"><span>Antes</span><small>[foto autorizada]</small></div>
+          <div class="comparar__foto comparar__foto--depois"><span>Depois</span><small>[foto autorizada]</small></div>
+          <span class="comparar__linha" aria-hidden="true"><i></i></span>
+          <input class="comparar__controle" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+        </div>
+        <dl class="caso__ficha">
+          <div class="caso__nome"><dt class="so-leitor">Procedimento</dt><dd>Prótese de silicone</dd></div>
+          <div><dt>Paciente</dt><dd>[idade] · [biotipo]</dd></div>
+          <div><dt>Indicação</dt><dd>[ex.: mamas pequenas em relação ao corpo, perda de volume após amamentação]</dd></div>
+          <div><dt>Técnica</dt><dd>[tipo, perfil e volume do implante · via de acesso]</dd></div>
+          <div><dt>Tempo de pós</dt><dd>[ex.: 6 meses]</dd></div>
+          <div><dt>Possíveis complicações</dt><dd>Contratura capsular, assimetria, alteração de sensibilidade, cicatrização desfavorável e necessidade de reoperação.</dd></div>
+        </dl>
+      </div>
+
+      <div class="caso" id="caso-abdome" role="tabpanel" aria-labelledby="caba-abdome" hidden>
+        <div class="comparar" style="--pos: 50%" data-comparar>
+          <div class="comparar__foto comparar__foto--antes"><span>Antes</span><small>[foto autorizada]</small></div>
+          <div class="comparar__foto comparar__foto--depois"><span>Depois</span><small>[foto autorizada]</small></div>
+          <span class="comparar__linha" aria-hidden="true"><i></i></span>
+          <input class="comparar__controle" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+        </div>
+        <dl class="caso__ficha">
+          <div class="caso__nome"><dt class="so-leitor">Procedimento</dt><dd>Abdominoplastia</dd></div>
+          <div><dt>Paciente</dt><dd>[idade] · [biotipo]</dd></div>
+          <div><dt>Indicação</dt><dd>[ex.: excesso de pele e afastamento muscular após duas gestações]</dd></div>
+          <div><dt>Técnica</dt><dd>[abdominoplastia ou lipoabdominoplastia · plicatura]</dd></div>
+          <div><dt>Tempo de pós</dt><dd>[ex.: 8 meses]</dd></div>
+          <div><dt>Possíveis complicações</dt><dd>Seroma, hematoma, alterações da cicatriz, sofrimento de pele e trombose, por isso os critérios de segurança.</dd></div>
+        </dl>
+      </div>
+
+      <div class="caso" id="caso-contorno" role="tabpanel" aria-labelledby="caba-contorno" hidden>
+        <div class="comparar" style="--pos: 50%" data-comparar>
+          <div class="comparar__foto comparar__foto--antes"><span>Antes</span><small>[foto autorizada]</small></div>
+          <div class="comparar__foto comparar__foto--depois"><span>Depois</span><small>[foto autorizada]</small></div>
+          <span class="comparar__linha" aria-hidden="true"><i></i></span>
+          <input class="comparar__controle" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+        </div>
+        <dl class="caso__ficha">
+          <div class="caso__nome"><dt class="so-leitor">Procedimento</dt><dd>Contorno corporal</dd></div>
+          <div><dt>Paciente</dt><dd>[idade] · [biotipo]</dd></div>
+          <div><dt>Indicação</dt><dd>[ex.: gordura localizada em abdome e flancos, IMC dentro do recomendado]</dd></div>
+          <div><dt>Técnica</dt><dd>[lipoaspiração · áreas tratadas · Argoplasma, se usado]</dd></div>
+          <div><dt>Tempo de pós</dt><dd>[ex.: 4 meses]</dd></div>
+          <div><dt>Possíveis complicações</dt><dd>Irregularidades de contorno, seroma, hematoma, alteração de sensibilidade e assimetria.</dd></div>
+        </dl>
+      </div>
+
+      <p class="casos__nota" data-foco>Imagens publicadas com autorização por escrito, sem identificar a paciente e com finalidade educativa (Resolução CFM nº 2.336/2023). Cada corpo responde de um jeito: resultados variam de pessoa para pessoa.</p>
+    </div>
+  </div>
+</section>
+
+
+    <section class="local" id="local" aria-labelledby="local-titulo">
+  <div class="conteudo local__grade">
+    <img class="local__foto" src="img/local-consultorio.webp" width="760" height="620" alt="Consultório do Dr. Guilherme Pansardi em Nova Iguaçu" loading="lazy" decoding="async" data-foco>
+    <div class="local__texto">
+      <p class="etiqueta" data-foco>Onde eu atendo</p>
+      <h2 class="titulo" id="local-titulo" data-foco style="--i: 1">No Centro de Nova Iguaçu</h2>
+      <dl class="local__dados">
+        <div data-foco style="--i: 2"><dt>Endereço</dt><dd>R. Cel. Bernardino de Melo, 2201, sala 1806<br>Centro, Nova Iguaçu · RJ · 26255-140</dd></div>
+        <div data-foco style="--i: 3"><dt>Horário</dt><dd>Segunda a sexta, das 8h às 18h<br>Com hora marcada</dd></div>
+        <div data-foco style="--i: 4"><dt>Telefones</dt><dd>(21) 99512-1607<br>(21) 99536-4240</dd></div>
+      </dl>
+      <a class="botao botao--acento" href="https://www.google.com/maps/search/?api=1&amp;query=R.+Cel.+Bernardino+de+Melo,+2201,+Nova+Igua%C3%A7u,+RJ" target="_blank" rel="noopener" data-foco style="--i: 5">
+        <span class="botao__texto">Como chegar</span>
+        <span class="botao__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#seta"/></svg><svg viewBox="0 0 24 24"><use href="#seta"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+    <section class="contato" id="contato" data-fecho aria-labelledby="contato-titulo">
+  <div class="painel">
+  <div class="conteudo contato__grade">
+    <h2 class="titulo contato__titulo" id="contato-titulo" data-foco><span>Seu plano começa</span> <span>numa conversa.</span></h2>
+
+    <div class="contato__lado" data-foco style="--i: 1">
+      <p class="apoio">Deixe o seu WhatsApp. A minha secretária chama você para entender o seu objetivo e marcar a avaliação.</p>
+      <!-- sem número em data-whatsapp, o pedido só mostra a confirmação; com ele (ex.: 5511999990000), abre a conversa -->
+      <form class="pedido" data-pedido data-whatsapp="5521995121607" novalidate>
+        <label class="so-leitor" for="pedido-whats">Seu WhatsApp com DDD</label>
+        <div class="pedido__campo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.500a8.500 8.500 0 0 0-7.300 12.800L3.500 20.500l4.300-1.100A8.500 8.500 0 1 0 12 3.500z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9.300 8.200c-.3 0-.6.100-.8.400-.3.400-.9 1-.9 2.200 0 1.100.8 2.300 1 2.500.6.900 2 2.400 4.300 3 .8.200 1.500.100 2-.200.500-.300.900-.900 1-1.300.100-.300 0-.500-.200-.600l-1.600-.800c-.200-.100-.500-.100-.600.100l-.6.800c-.1.100-.300.200-.500.100-.700-.300-1.900-1.100-2.500-2.200-.1-.200 0-.400.100-.500l.5-.600c.100-.200.100-.400 0-.600l-.700-1.700c-.1-.400-.300-.600-.500-.600z" fill="currentColor"/></svg>
+          <input id="pedido-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="WhatsApp com DDD" aria-describedby="pedido-aviso" required>
+          <button class="pedido__enviar" type="submit"><span>Quero agendar</span></button>
+        </div>
+        <p class="pedido__aviso" id="pedido-aviso" role="status" aria-live="polite"></p>
+        <p class="pedido__feito" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.500l4.500 4.500L19 7.500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span><b>Anotado.</b> A secretária chama você no número <b data-pedido-numero></b> em horário comercial.</span>
+          <button type="button" class="pedido__outro">Corrigir o número</button>
+        </p>
+      </form>
+    </div>
+  </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="rodape">
+  <div class="painel">
+  <div class="conteudo rodape__grade">
+    <nav class="rodape__colunas" aria-label="Rodapé">
+      <div data-foco>
+        <p class="rodape__rotulo">Site</p>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre mim</a></li>
+          <li><a href="#procedimentos">Procedimentos</a></li>
+          <li><a href="#casos">Casos</a></li>
+          <li><a href="#consulta">Primeira consulta</a></li>
+          <li><a href="#jornada">A jornada</a></li>
+          <li><a href="#recuperacao">Recuperação</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#local">Onde atendo</a></li>
+        </ul>
+      </div>
+      <div data-foco style="--i: 1">
+        <p class="rodape__rotulo">Procedimentos</p>
+        <ul>
+          <li><a href="#inicio" data-tratamento="0">Avaliação</a></li>
+          <li><a href="#inicio" data-tratamento="1">Prótese de silicone</a></li>
+          <li><a href="#inicio" data-tratamento="2">Abdominoplastia</a></li>
+          <li><a href="#inicio" data-tratamento="2">Lipo e contorno corporal</a></li>
+          <li><a href="#inicio" data-tratamento="1">Mastopexia e redutora</a></li>
+        </ul>
+      </div>
+      <div data-foco style="--i: 2">
+        <p class="rodape__rotulo">Atendimento</p>
+        <ul>
+          <li>Segunda a sexta, 8h às 18h</li>
+          <li>R. Cel. Bernardino de Melo, 2201, sala 1806</li>
+          <li>Centro, Nova Iguaçu · RJ</li>
+          <li>(21) 99512-1607</li>
+          <li>(21) 99536-4240</li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="rodape__direto" data-foco style="--i: 3">
+      <p class="rodape__rotulo">Fale com a secretaria</p>
+      <a class="rodape__email" href="mailto:secretaria@drguilhermepansardi.com">secretaria@drguilhermepansardi.com</a>
+      <p class="rodape__siga">Me acompanhe</p>
+      <ul class="rodape__redes">
+        
+        <li><a href="https://wa.me/5521995121607" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.500a8.500 8.500 0 0 0-7.300 12.800L3.500 20.500l4.300-1.100A8.500 8.500 0 1 0 12 3.500z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.300 8.200c-.3 0-.6.100-.8.400-.3.400-.9 1-.9 2.200 0 1.100.8 2.300 1 2.500.6.900 2 2.400 4.300 3 .8.200 1.500.100 2-.200.500-.300.900-.900 1-1.300.100-.300 0-.500-.200-.600l-1.600-.800c-.2-.100-.5-.100-.6.100l-.6.800c-.1.100-.3.200-.5.100-.7-.300-1.900-1.100-2.500-2.200-.1-.200 0-.400.100-.500l.5-.600c.100-.200.100-.400 0-.600l-.700-1.700c-.1-.400-.300-.600-.500-.600z" fill="currentColor"/></svg></a></li>
+        <li><a href="https://www.facebook.com/dr.guilhermeandradeplastica/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.500 20.500v-7h2.400l.4-2.900h-2.800V8.800c0-.8.300-1.400 1.400-1.400h1.500V4.800c-.3 0-1.200-.1-2.200-.1-2.200 0-3.700 1.300-3.700 3.800v2.100H8v2.900h2.500v7z" fill="currentColor"/></svg></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- o sobrenome, gigante e quase invisível; o fim dele fica um tom acima -->
+  <p class="rodape__nome" aria-hidden="true" data-foco><span>Pan</span><span class="rodape__dente">sardi</span></p>
+
+  <div class="conteudo rodape__pe">
+    <p>© 2026 Clínica Dr. Guilherme Pansardi</p>
+    <p>Dr. Guilherme Pansardi De Andrade · Médico · Cirurgião Plástico · CRM/RJ 52886840 · RQE 27101</p>
+    <a href="#inicio">Voltar ao topo</a>
+  </div>
+  </div>
+</footer>
+
+
+  <!-- botão flutuante de WhatsApp: aparece depois do hero -->
+<a class="zap" href="https://wa.me/5521995121607?text=Ol%C3%A1%2C%20Dr.%20Guilherme!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Falar no WhatsApp" data-zap>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.500a8.500 8.500 0 0 0-7.300 12.800L3.500 20.500l4.300-1.100A8.500 8.500 0 1 0 12 3.500z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.300 8.200c-.3 0-.6.100-.8.400-.3.400-.9 1-.9 2.200 0 1.100.8 2.300 1 2.500.6.900 2 2.400 4.300 3 .8.200 1.500.100 2-.200.500-.300.900-.900 1-1.300.100-.300 0-.500-.200-.600l-1.600-.800c-.2-.100-.5-.100-.6.100l-.6.800c-.1.100-.3.200-.5.100-.7-.300-1.900-1.100-2.500-2.200-.1-.200 0-.400.100-.500l.5-.600c.100-.200.100-.400 0-.600l-.700-1.700c-.1-.400-.300-.600-.500-.600z" fill="currentColor"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+
+  <!-- selo da prévia: sai quando o site for para o ar de verdade -->
+<p class="previa"><span class="previa__ponto" aria-hidden="true"></span>Prévia exclusiva · preparada pela <b>AIBeck</b></p>
+
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
