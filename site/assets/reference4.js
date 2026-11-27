@@ -33,7 +33,7 @@
      if(document.getElementById(productAnchor)){demo.href='#'+productAnchor;demo.textContent='Ver a solução indicada para você ↗';demo.dataset.ab10Product=productAnchor;}
      else{demo.href=current.demo;delete demo.dataset.ab10Product;demo.textContent=answers.problema==='site'?'Explorar sites 3D ↗':'Testar demonstração ↗';}
      const msg='Olá! Usei o guia do site AIBeck. Tenho uma empresa do segmento '+answers.segmento+'. Meu desafio é '+({atendimento:'melhorar atendimento e acompanhamento',gestao:'organizar vendas e gestão',site:'melhorar minha presença digital',integracoes:'integrar sistemas e processos'}[answers.problema])+'. Momento: '+answers.momento+'. Quero saber como vocês podem ajudar.';
-     $('#refResultWhatsApp').href='https://wa.me/5524992130600?text='+encodeURIComponent(msg);
+     $('#refResultWhatsApp').href='https://wa.me/5524992239947?text='+encodeURIComponent(msg);
      go(3);
      window.aiTrack?.('recommendation_completed',{category:answers.problema,segment:answers.segmento,stage:answers.momento});
    }
